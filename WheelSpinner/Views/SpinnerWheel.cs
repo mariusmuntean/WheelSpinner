@@ -81,7 +81,7 @@ namespace WheelSpinner.Views
 
         private void CanvasViewOnTouch(object sender, SKTouchEventArgs e)
         {
-            Console.WriteLine($" {e.ActionType.ToString()} - ({e.Location.X}, {e.Location.Y})");
+//            Console.WriteLine($" {e.ActionType.ToString()} - ({e.Location.X}, {e.Location.Y})");
 
             switch (e.ActionType)
             {
@@ -94,18 +94,43 @@ namespace WheelSpinner.Views
                     // Undo center-point translation
                     currentPoint = e.Location - _centerPoint;
 
+                    /// Compute the vector angle
                     var dotProduct = currentPoint.X * prevPoint.X
                                      + currentPoint.Y * prevPoint.Y;
                     var vectorMagnitude = Math.Sqrt(Math.Pow(currentPoint.X, 2) + Math.Pow(currentPoint.Y, 2))
                                           * Math.Sqrt(Math.Pow(prevPoint.X, 2) + Math.Pow(prevPoint.Y, 2));
-                    var angleRadians = Math.Acos(dotProduct / vectorMagnitude);
+                    // sanitize Acos arg
+                    var ratio = dotProduct / vectorMagnitude;
+                    ratio = Math.Min(ratio, 1.0d);
+                    ratio = Math.Max(ratio, -1.0d);
+                    var angleRadians = Math.Acos(ratio);
+
+                    if (double.IsNaN(angleRadians)
+                        || double.IsNegativeInfinity(angleRadians)
+                        || double.IsPositiveInfinity(angleRadians))
+                    {
+                        Console.WriteLine("huh?");
+                    }
 
                     var angleDegrees = angleRadians * RadianToDegreesFactor;
-                    RotationAngle += angleDegrees;
+                    var clockwise = (prevPoint.X * currentPoint.Y - prevPoint.Y * currentPoint.X) > 0;
 
+                    RotationAngle += clockwise ? angleDegrees : -angleDegrees;
+                    RotationAngle = RotationAngle > 360.0d ? RotationAngle - 360d : RotationAngle;
+                    RotationAngle = RotationAngle < -360.0d ? RotationAngle + 360d : RotationAngle;
+                    if (double.IsNaN(RotationAngle))
+                    {
+                        Console.WriteLine("huh=");
+                    }
+
+
+                    prevPoint = currentPoint;
 
                     break;
                 case SKTouchAction.Released:
+                    currentPoint = SKPoint.Empty;
+                    prevPoint = SKPoint.Empty;
+
                     break;
                 case SKTouchAction.Cancelled:
                     break;
@@ -114,6 +139,8 @@ namespace WheelSpinner.Views
             }
 
             e.Handled = true;
+
+            Console.WriteLine($"Rotation angle: {RotationAngle}°");
             _canvasView.InvalidateSurface();
         }
 

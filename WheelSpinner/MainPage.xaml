@@ -13,8 +13,9 @@
         </Grid.RowDefinitions>
 
         <Slider x:Name="AngleSlider"
-                
-                Minimum="0"
+                Margin="10"
+                HeightRequest="50"
+                Minimum="-360"
                 Maximum="360" />
 
         <views:SpinnerWheel Grid.Row="1"
