@@ -12,10 +12,17 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Label>HOLA</Label>
-        <views:SpinnerWheel Grid.Row="1" 
-                            WidthRequest="600" 
-                            HeightRequest="600" />
+        <Slider x:Name="AngleSlider"
+                
+                Minimum="0"
+                Maximum="360" />
+
+        <views:SpinnerWheel Grid.Row="1"
+                            WidthRequest="600"
+                            HeightRequest="600"
+                            RotationAngle="{Binding Source={x:Reference AngleSlider}, Path=Value}"
+                            
+                            />
 
     </Grid>
 </ContentPage>
