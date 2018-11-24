@@ -18,6 +18,7 @@
                 Maximum="360" />
 
         <views:SpinnerWheel Grid.Row="1"
+                            BackgroundColor="LightGray"
                             WidthRequest="600"
                             HeightRequest="600"
                             RotationAngle="{Binding Source={x:Reference AngleSlider}, Path=Value}"
