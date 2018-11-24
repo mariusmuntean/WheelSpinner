@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
 using Xamarin.Forms;
@@ -39,7 +41,7 @@ namespace WheelSpinner.Views
         private readonly SKPaint _thinStrokeTextPaint = new SKPaint
         {
             IsStroke = false,
-            Color = Color.Orchid.ToSKColor(),
+            Color = Color.Aqua.ToSKColor(),
             TextSize = 40.0f,
             TextAlign = SKTextAlign.Center,
             TextEncoding = SKTextEncoding.Utf16,
@@ -79,60 +81,72 @@ namespace WheelSpinner.Views
             (bindable as SpinnerWheel)?._canvasView.InvalidateSurface();
         }
 
+        private long touchId = -1;
+
         private void CanvasViewOnTouch(object sender, SKTouchEventArgs e)
         {
-//            Console.WriteLine($" {e.ActionType.ToString()} - ({e.Location.X}, {e.Location.Y})");
-
             switch (e.ActionType)
             {
                 case SKTouchAction.Pressed:
-                    // Undo center-point translation
-                    prevPoint = e.Location - _centerPoint;
+
+                    if (littleCircleBoundingRects.Any(rect => rect.Contains(e.Location - _centerPoint)))
+                    {
+                        touchId = e.Id;
+
+                        // Save the touchdown location and undo center-point translation
+                        prevPoint = e.Location - _centerPoint;
+                    }
+
                     break;
                 case SKTouchAction.Moved:
 
-                    // Undo center-point translation
-                    currentPoint = e.Location - _centerPoint;
-
-                    /// Compute the vector angle
-                    var dotProduct = currentPoint.X * prevPoint.X
-                                     + currentPoint.Y * prevPoint.Y;
-                    var vectorMagnitude = Math.Sqrt(Math.Pow(currentPoint.X, 2) + Math.Pow(currentPoint.Y, 2))
-                                          * Math.Sqrt(Math.Pow(prevPoint.X, 2) + Math.Pow(prevPoint.Y, 2));
-                    // sanitize Acos arg
-                    var ratio = dotProduct / vectorMagnitude;
-                    ratio = Math.Min(ratio, 1.0d);
-                    ratio = Math.Max(ratio, -1.0d);
-                    var angleRadians = Math.Acos(ratio);
-
-                    if (double.IsNaN(angleRadians)
-                        || double.IsNegativeInfinity(angleRadians)
-                        || double.IsPositiveInfinity(angleRadians))
+                    if (e.Id == touchId)
                     {
-                        Console.WriteLine("huh?");
+                        // Save the move location and undo center-point translation
+                        currentPoint = e.Location - _centerPoint;
+
+                        /// Compute the vector angle
+                        var dotProduct = currentPoint.X * prevPoint.X
+                                         + currentPoint.Y * prevPoint.Y;
+                        var vectorMagnitude = Math.Sqrt(Math.Pow(currentPoint.X, 2) + Math.Pow(currentPoint.Y, 2))
+                                              * Math.Sqrt(Math.Pow(prevPoint.X, 2) + Math.Pow(prevPoint.Y, 2));
+                        // sanitize Acos arg
+                        var ratio = dotProduct / vectorMagnitude;
+                        ratio = Math.Min(ratio, 1.0d);
+                        ratio = Math.Max(ratio, -1.0d);
+                        var angleRadians = Math.Acos(ratio);
+
+                        if (double.IsNaN(angleRadians)
+                            || double.IsNegativeInfinity(angleRadians)
+                            || double.IsPositiveInfinity(angleRadians))
+                        {
+                            Console.WriteLine("huh?");
+                        }
+
+                        var angleDegrees = angleRadians * RadianToDegreesFactor;
+                        var clockwise = (prevPoint.X * currentPoint.Y - prevPoint.Y * currentPoint.X) > 0;
+
+                        RotationAngle += clockwise ? angleDegrees : -angleDegrees;
+                        RotationAngle = RotationAngle > 360.0d ? RotationAngle - 360d : RotationAngle;
+                        RotationAngle = RotationAngle < -360.0d ? RotationAngle + 360d : RotationAngle;
+                        if (double.IsNaN(RotationAngle))
+                        {
+                            Console.WriteLine("huh=");
+                        }
+
+
+                        prevPoint = currentPoint;
                     }
 
-                    var angleDegrees = angleRadians * RadianToDegreesFactor;
-                    var clockwise = (prevPoint.X * currentPoint.Y - prevPoint.Y * currentPoint.X) > 0;
-
-                    RotationAngle += clockwise ? angleDegrees : -angleDegrees;
-                    RotationAngle = RotationAngle > 360.0d ? RotationAngle - 360d : RotationAngle;
-                    RotationAngle = RotationAngle < -360.0d ? RotationAngle + 360d : RotationAngle;
-                    if (double.IsNaN(RotationAngle))
-                    {
-                        Console.WriteLine("huh=");
-                    }
-
-
-                    prevPoint = currentPoint;
 
                     break;
                 case SKTouchAction.Released:
                     currentPoint = SKPoint.Empty;
                     prevPoint = SKPoint.Empty;
-
+                    touchId = -1;
                     break;
                 case SKTouchAction.Cancelled:
+                    touchId = -1;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -143,6 +157,8 @@ namespace WheelSpinner.Views
             Console.WriteLine($"Rotation angle: {RotationAngle}°");
             _canvasView.InvalidateSurface();
         }
+
+        List<SKRect> littleCircleBoundingRects = new List<SKRect>();
 
         private void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
         {
@@ -168,6 +184,7 @@ namespace WheelSpinner.Views
             // Draw little circles
             var angleIncrement = 0.0f;
             var littleCircleRadius = radius * 0.1f;
+            littleCircleBoundingRects.Clear();
             for (var i = 1; i < 13; i++)
             {
                 var littleCircleCenter = new SKPoint(
@@ -176,6 +193,11 @@ namespace WheelSpinner.Views
                 );
 
                 canvas.DrawCircle(littleCircleCenter, littleCircleRadius, _thinStrokePaint);
+                littleCircleBoundingRects.Add(new SKRect(littleCircleCenter.X - (littleCircleRadius / 2f),
+                    littleCircleCenter.Y - (littleCircleRadius / 2f),
+                    littleCircleCenter.X + (littleCircleRadius / 2f),
+                    littleCircleCenter.Y + (littleCircleRadius / 2f)
+                ));
 
                 var textLocation = littleCircleCenter + new SKPoint(0, littleCircleRadius / 2);
                 canvas.DrawText($"{i.ToString()}", textLocation, _thinStrokeTextPaint);
