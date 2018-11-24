@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.nuget/packages/xamarin.android.arch.lifecycle.runtime/1.0.3.1/proguard" t="Include">
+      <e p="proguard.txt" t="Include" />
+    </e>
+    <e p="$USER_HOME$/.nuget/packages/xamarin.android.support.animated.vector.drawable/27.0.2.1/proguard" t="Include">
+      <e p="proguard.txt" t="Include" />
+    </e>
+    <e p="$USER_HOME$/.nuget/packages/xamarin.android.support.core.ui/27.0.2.1/proguard" t="Include">
+      <e p="proguard.txt" t="Include" />
+    </e>
+    <e p="$USER_HOME$/.nuget/packages/xamarin.android.support.design/27.0.2.1/proguard" t="Include">
+      <e p="proguard.txt" t="Include" />
+    </e>
+    <e p="$USER_HOME$/.nuget/packages/xamarin.android.support.media.compat/27.0.2.1/proguard" t="Include">
+      <e p="proguard.txt" t="Include" />
+    </e>
+    <e p="$USER_HOME$/.nuget/packages/xamarin.android.support.transition/27.0.2.1/proguard" t="Include">
+      <e p="proguard.txt" t="Include" />
+    </e>
+    <e p="$USER_HOME$/.nuget/packages/xamarin.android.support.v7.recyclerview/27.0.2.1/proguard" t="Include">
+      <e p="proguard.txt" t="Include" />
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2018.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2018.2/resharper-host/local/Transient/ReSharperHost/v182/SolutionCaches/_WheelSpinner.123287748.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="WheelSpinner" t="IncludeRecursive">
+        <e p="App.xaml" t="Include" />
+        <e p="App.xaml.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="MainPage.xaml" t="Include" />
+        <e p="MainPage.xaml.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="WheelSpinner.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="WheelSpinner.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="WheelSpinner.Android" t="IncludeRecursive">
+        <e p="Assets" t="Include">
+          <e p="AboutAssets.txt" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="MainActivity.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AndroidManifest.xml" t="Include" />
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Resources" t="Include">
+          <e p="AboutResources.txt" t="Include" />
+          <e p="drawable" t="Include" />
+          <e p="drawable-hdpi" t="Include" />
+          <e p="drawable-xhdpi" t="Include" />
+          <e p="drawable-xxhdpi" t="Include" />
+          <e p="drawable-xxxhdpi" t="Include" />
+          <e p="layout" t="Include">
+            <e p="Tabbar.axml" t="Include" />
+            <e p="Toolbar.axml" t="Include" />
+          </e>
+          <e p="mipmap-anydpi-v26" t="Include">
+            <e p="icon.xml" t="Include" />
+            <e p="icon_round.xml" t="Include" />
+          </e>
+          <e p="mipmap-hdpi" t="Include">
+            <e p="Icon.png" t="Include" />
+            <e p="launcher_foreground.png" t="Include" />
+          </e>
+          <e p="mipmap-mdpi" t="Include">
+            <e p="Icon.png" t="Include" />
+            <e p="launcher_foreground.png" t="Include" />
+          </e>
+          <e p="mipmap-xhdpi" t="Include">
+            <e p="Icon.png" t="Include" />
+            <e p="launcher_foreground.png" t="Include" />
+          </e>
+          <e p="mipmap-xxhdpi" t="Include">
+            <e p="Icon.png" t="Include" />
+            <e p="launcher_foreground.png" t="Include" />
+          </e>
+          <e p="mipmap-xxxhdpi" t="Include">
+            <e p="Icon.png" t="Include" />
+            <e p="launcher_foreground.png" t="Include" />
+          </e>
+          <e p="Resource.Designer.cs" t="Include" />
+          <e p="values" t="Include">
+            <e p="colors.xml" t="Include" />
+            <e p="styles.xml" t="Include" />
+          </e>
+        </e>
+        <e p="WheelSpinner.Android.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="WheelSpinner.iOS" t="IncludeRecursive">
+        <e p="AppDelegate.cs" t="Include" />
+        <e p="Assets.xcassets" t="Include">
+          <e p="AppIcon.appiconset" t="Include">
+            <e p="Contents.json" t="Include" />
+            <e p="Icon1024.png" t="Include" />
+            <e p="Icon120.png" t="Include" />
+            <e p="Icon152.png" t="Include" />
+            <e p="Icon167.png" t="Include" />
+            <e p="Icon180.png" t="Include" />
+            <e p="Icon20.png" t="Include" />
+            <e p="Icon29.png" t="Include" />
+            <e p="Icon40.png" t="Include" />
+            <e p="Icon58.png" t="Include" />
+            <e p="Icon60.png" t="Include" />
+            <e p="Icon76.png" t="Include" />
+            <e p="Icon80.png" t="Include" />
+            <e p="Icon87.png" t="Include" />
+          </e>
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Entitlements.plist" t="Include" />
+        <e p="Info.plist" t="Include" />
+        <e p="Main.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Resources" t="Include">
+          <e p="LaunchScreen.storyboard" t="Include" />
+        </e>
+        <e p="WheelSpinner.iOS.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="WheelSpinner.macOS" t="IncludeRecursive">
+        <e p="AppDelegate.cs" t="Include" />
+        <e p="Assets.xcassets" t="Include">
+          <e p="AppIcon.appiconset" t="Include">
+            <e p="AppIcon-128.png" t="Include" />
+            <e p="AppIcon-128@2x.png" t="Include" />
+            <e p="AppIcon-16.png" t="Include" />
+            <e p="AppIcon-16@2x.png" t="Include" />
+            <e p="AppIcon-256.png" t="Include" />
+            <e p="AppIcon-256@2x.png" t="Include" />
+            <e p="AppIcon-32.png" t="Include" />
+            <e p="AppIcon-32@2x.png" t="Include" />
+            <e p="AppIcon-512.png" t="Include" />
+            <e p="AppIcon-512@2x.png" t="Include" />
+            <e p="Contents.json" t="Include" />
+          </e>
+          <e p="Contents.json" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Entitlements.plist" t="Include" />
+        <e p="Info.plist" t="Include" />
+        <e p="Main.cs" t="Include" />
+        <e p="Main.storyboard" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Resources" t="Include" />
+        <e p="ViewController.cs" t="Include" />
+        <e p="ViewController.designer.cs" t="Include" />
+        <e p="WheelSpinner.macOS.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="WheelSpinner.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
