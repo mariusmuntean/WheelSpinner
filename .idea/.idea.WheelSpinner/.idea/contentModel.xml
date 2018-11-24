@@ -39,6 +39,9 @@
             </e>
           </e>
         </e>
+        <e p="Views" t="Include">
+          <e p="SpinnerWheel.cs" t="Include" />
+        </e>
         <e p="WheelSpinner.csproj" t="IncludeRecursive" />
       </e>
       <e p="WheelSpinner.Android" t="IncludeRecursive">

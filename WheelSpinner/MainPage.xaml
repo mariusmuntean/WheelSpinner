@@ -1,14 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage
-    xmlns      = "http://xamarin.com/schemas/2014/forms"
-    xmlns:x     = "http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local = "clr-namespace:WheelSpinner"
-    x:Class     = "WheelSpinner.MainPage">
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label
-            Text              = "Welcome to Xamarin.Forms!"
-            HorizontalOptions = "Center"
-            VerticalOptions   = "CenterAndExpand" />
-    </StackLayout>
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:WheelSpinner"
+    xmlns:views="clr-namespace:WheelSpinner.Views;assembly=WheelSpinner"
+    x:Class="WheelSpinner.MainPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label>HOLA</Label>
+        <views:SpinnerWheel Grid.Row="1" 
+                            WidthRequest="600" 
+                            HeightRequest="600" />
+
+    </Grid>
 </ContentPage>
