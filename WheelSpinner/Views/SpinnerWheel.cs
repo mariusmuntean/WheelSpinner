@@ -154,30 +154,32 @@ namespace WheelSpinner.Views
 
             _centerPoint = new SKPoint(info.Width / 2f, info.Height / 2f);
 
-            // Account for desired rotation angle
-            canvas.RotateDegrees((float) RotationAngle, _centerPoint.X, _centerPoint.Y);
+            // Move canvas origin to the center of the screen
+            canvas.Translate(_centerPoint);
 
+            // Set the desired rotation angle
+//            canvas.RotateDegrees((float) RotationAngle);
 
             var radius = Math.Min(info.Width / 2f, info.Height / 2f) * 0.8f;
 
             // Draw large circle
-            canvas.DrawCircle(_centerPoint, radius, _thickStrokePaint);
+            canvas.DrawCircle(new SKPoint(), radius, _thickStrokePaint);
 
             // Draw little circles
-            var angle = 0.0f;
+            var angleIncrement = 0.0f;
             var littleCircleRadius = radius * 0.1f;
             for (var i = 1; i < 13; i++)
             {
                 var littleCircleCenter = new SKPoint(
-                                             (float) (radius * Math.Cos(angle * DegreesToRadianFactor)),
-                                             (float) (radius * Math.Sin(angle * DegreesToRadianFactor))
-                                         ) + _centerPoint;
+                    (float) (radius * Math.Cos((RotationAngle + angleIncrement) * DegreesToRadianFactor)),
+                    (float) (radius * Math.Sin((RotationAngle + angleIncrement) * DegreesToRadianFactor))
+                );
 
                 canvas.DrawCircle(littleCircleCenter, littleCircleRadius, _thinStrokePaint);
 
                 var textLocation = littleCircleCenter + new SKPoint(0, littleCircleRadius / 2);
                 canvas.DrawText($"{i.ToString()}", textLocation, _thinStrokeTextPaint);
-                angle += 30;
+                angleIncrement += 30;
             }
         }
     }
