@@ -49,16 +49,16 @@ namespace WheelSpinner.Views
         private readonly SKPaint _thickStrokePaint = new SKPaint
         {
             Style = SKPaintStyle.Stroke,
-            Color = Color.Red.ToSKColor(),
-            StrokeWidth = 25,
+            Color = Color.FromHex("FF6600").ToSKColor(),
+            StrokeWidth = 8,
             IsAntialias = true
         };
 
         private readonly SKPaint _thinStrokePaint = new SKPaint
         {
             Style = SKPaintStyle.Stroke,
-            Color = Color.Red.ToSKColor(),
-            StrokeWidth = 8,
+            Color = Color.FromHex("FF6600").ToSKColor(),
+            StrokeWidth = 4,
             IsAntialias = true
         };
 
@@ -118,6 +118,7 @@ namespace WheelSpinner.Views
         }
 
         private long touchId = -1;
+        private int pressedIdx = -1;
 
         private void CanvasViewOnTouch(object sender, SKTouchEventArgs e)
         {
@@ -125,9 +126,12 @@ namespace WheelSpinner.Views
             {
                 case SKTouchAction.Pressed:
 
-                    if (littleCircleBoundingRects.Any(rect => rect.Contains(e.Location - _centerPoint)))
+                    var pressedContentBoundingRect =
+                        littleCircleBoundingRects.FirstOrDefault(rect => rect.Contains(e.Location - _centerPoint));
+                    if (pressedContentBoundingRect != null)
                     {
                         touchId = e.Id;
+                        pressedIdx = littleCircleBoundingRects.IndexOf(pressedContentBoundingRect);
 
                         // Save the touchdown location and undo center-point translation
                         prevPoint = e.Location - _centerPoint;
@@ -179,13 +183,16 @@ namespace WheelSpinner.Views
                 case SKTouchAction.Released:
                     currentPoint = SKPoint.Empty;
                     prevPoint = SKPoint.Empty;
+
                     touchId = -1;
+                    pressedIdx = -1;
 
                     SnapToClosestSlot();
 
                     break;
                 case SKTouchAction.Cancelled:
                     touchId = -1;
+                    pressedIdx = -1;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -242,7 +249,7 @@ namespace WheelSpinner.Views
             var radius = Math.Min(info.Width / 2f, info.Height / 2f) * 0.8f;
 
             // Draw large circle
-            canvas.DrawCircle(new SKPoint(), radius, _thickStrokePaint);
+            canvas.DrawCircle(new SKPoint(), radius, _thinStrokePaint);
 
             // Draw little circles
             var angleIncrement = 0.0f;
@@ -250,12 +257,21 @@ namespace WheelSpinner.Views
             littleCircleBoundingRects.Clear();
             for (var i = 1; i < 13; i++)
             {
+                canvas.Save();
+
                 var littleCircleCenter = new SKPoint(
                     (float) (radius * Math.Cos((RotationAngle + angleIncrement) * DegreesToRadianFactor)),
                     (float) (radius * Math.Sin((RotationAngle + angleIncrement) * DegreesToRadianFactor))
                 );
+                canvas.Translate(littleCircleCenter);
 
-                canvas.DrawCircle(littleCircleCenter, littleCircleRadius, _thinStrokePaint);
+                // Highlight pressed content
+                if (i - 1 == pressedIdx)
+                {
+                    canvas.Scale(1.1f);
+                }
+
+                canvas.DrawCircle(0, 0, littleCircleRadius, _thickStrokePaint);
 
                 var hitAreaRect = new SKRect(littleCircleCenter.X - (littleCircleRadius),
                     littleCircleCenter.Y - (littleCircleRadius),
@@ -265,9 +281,14 @@ namespace WheelSpinner.Views
                 littleCircleBoundingRects.Add(hitAreaRect);
                 canvas.DrawRect(hitAreaRect, _hitAreaPaint);
 
-                var textLocation = littleCircleCenter + new SKPoint(0, littleCircleRadius / 2);
-                canvas.DrawText($"{i.ToString()}", textLocation, _thinStrokeTextPaint);
+                var text = $"{i.ToString()}";
+                var textRect = new SKRect();
+                _thinStrokePaint.MeasureText(text, ref textRect);
+                var textLocation = new SKPoint(0, textRect.Height);
+                canvas.DrawText(text, textLocation, _thinStrokeTextPaint);
                 angleIncrement += 30;
+
+                canvas.Restore();
             }
         }
     }
