@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Input;
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
 using Xamarin.Forms;
@@ -12,6 +13,17 @@ namespace WheelSpinner.Views
         private const double DegreesToRadianFactor = Math.PI / 180;
         private const double RadianToDegreesFactor = 180 / Math.PI;
 
+        public static readonly BindableProperty DoItCommandProperty = BindableProperty.Create("DoItCommandProperty",
+            typeof(ICommand),
+            typeof(SpinnerWheel));
+
+        public ICommand DoItCommand
+        {
+            get => (ICommand) GetValue(DoItCommandProperty);
+            set => SetValue(DoItCommandProperty, value);
+        }
+
+
         public static readonly BindableProperty RotationAngleProperty = BindableProperty.Create("RotationAngleProperty",
             typeof(double),
             typeof(SpinnerWheel),
@@ -19,6 +31,18 @@ namespace WheelSpinner.Views
             BindingMode.TwoWay,
             propertyChanged: RotationAngleChanged
         );
+
+        public double RotationAngle
+        {
+            get => (double) GetValue(RotationAngleProperty);
+            set => SetValue(RotationAngleProperty, value);
+        }
+
+        private static void RotationAngleChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            (bindable as SpinnerWheel)?._canvasView.InvalidateSurface();
+        }
+
 
         private readonly SKCanvasView _canvasView;
 
@@ -38,6 +62,13 @@ namespace WheelSpinner.Views
             IsAntialias = true
         };
 
+        private readonly SKPaint _hitAreaPaint = new SKPaint()
+        {
+            Style = SKPaintStyle.Fill,
+            Color = Color.FromRgb(211, 211, 211).ToSKColor().WithAlpha(90),
+            IsAntialias = true
+        };
+
         private readonly SKPaint _thinStrokeTextPaint = new SKPaint
         {
             IsStroke = false,
@@ -53,6 +84,7 @@ namespace WheelSpinner.Views
         };
 
         private SKPoint _centerPoint;
+
         private SKPoint currentPoint;
 
         private SKPoint prevPoint;
@@ -60,6 +92,8 @@ namespace WheelSpinner.Views
         /**
          * 
          */
+
+
         public SpinnerWheel()
         {
             _canvasView = new SKCanvasView();
@@ -68,17 +102,19 @@ namespace WheelSpinner.Views
 
             _canvasView.EnableTouchEvents = true;
             _canvasView.Touch += CanvasViewOnTouch;
-        }
 
-        public double RotationAngle
-        {
-            get => (double) GetValue(RotationAngleProperty);
-            set => SetValue(RotationAngleProperty, value);
-        }
-
-        private static void RotationAngleChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            (bindable as SpinnerWheel)?._canvasView.InvalidateSurface();
+            DoItCommand = new Command(() =>
+            {
+                var initialRotationAngleValue = RotationAngle;
+                var rotationAnimation = new Animation(d =>
+                    {
+                        RotationAngle = initialRotationAngleValue + d;
+                        _canvasView.InvalidateSurface();
+                    },
+                    0.0d, 30.0d,
+                    Easing.CubicInOut);
+                rotationAnimation.Commit(this, "RotationAnimation", 1000 / 60, 400);
+            });
         }
 
         private long touchId = -1;
@@ -144,6 +180,9 @@ namespace WheelSpinner.Views
                     currentPoint = SKPoint.Empty;
                     prevPoint = SKPoint.Empty;
                     touchId = -1;
+
+                    SnapToClosestSlot();
+
                     break;
                 case SKTouchAction.Cancelled:
                     touchId = -1;
@@ -156,6 +195,30 @@ namespace WheelSpinner.Views
 
             Console.WriteLine($"Rotation angle: {RotationAngle}°");
             _canvasView.InvalidateSurface();
+        }
+
+        private void SnapToClosestSlot()
+        {
+            var slotCount = 12;
+            var slotAngle = 360.0d / slotCount;
+
+            var prevSlotIndex = Math.Floor(RotationAngle / slotAngle);
+            var nextSlotIndex = Math.Ceiling(RotationAngle / slotAngle);
+
+            var prevSlotAngle = prevSlotIndex * slotAngle;
+            var nextSlotAngle = nextSlotIndex * slotAngle;
+
+            var prevSlotAngleDelta = Math.Abs(RotationAngle - prevSlotAngle);
+            var nextSlotAngleDelta = Math.Abs(RotationAngle - nextSlotAngle);
+
+            var destinationAngle = prevSlotAngleDelta < nextSlotAngleDelta ? prevSlotAngle : nextSlotAngle;
+
+            var animateToAngle = new Animation(angle =>
+            {
+                RotationAngle = angle;
+                _canvasView.InvalidateSurface();
+            }, RotationAngle, destinationAngle, Easing.CubicInOut);
+            animateToAngle.Commit(this, "SnapAnimation", 1000 / 60, 400);
         }
 
         List<SKRect> littleCircleBoundingRects = new List<SKRect>();
@@ -193,11 +256,14 @@ namespace WheelSpinner.Views
                 );
 
                 canvas.DrawCircle(littleCircleCenter, littleCircleRadius, _thinStrokePaint);
-                littleCircleBoundingRects.Add(new SKRect(littleCircleCenter.X - (littleCircleRadius / 2f),
-                    littleCircleCenter.Y - (littleCircleRadius / 2f),
-                    littleCircleCenter.X + (littleCircleRadius / 2f),
-                    littleCircleCenter.Y + (littleCircleRadius / 2f)
-                ));
+
+                var hitAreaRect = new SKRect(littleCircleCenter.X - (littleCircleRadius),
+                    littleCircleCenter.Y - (littleCircleRadius),
+                    littleCircleCenter.X + (littleCircleRadius),
+                    littleCircleCenter.Y + (littleCircleRadius)
+                );
+                littleCircleBoundingRects.Add(hitAreaRect);
+                canvas.DrawRect(hitAreaRect, _hitAreaPaint);
 
                 var textLocation = littleCircleCenter + new SKPoint(0, littleCircleRadius / 2);
                 canvas.DrawText($"{i.ToString()}", textLocation, _thinStrokeTextPaint);

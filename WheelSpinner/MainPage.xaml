@@ -10,6 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Slider x:Name="AngleSlider"
@@ -19,12 +20,17 @@
                 Maximum="360" />
 
         <views:SpinnerWheel Grid.Row="1"
+                            x:Name="SpinnerWheel"
                             BackgroundColor="LightGray"
                             WidthRequest="600"
                             HeightRequest="600"
-                            RotationAngle="{Binding Source={x:Reference AngleSlider}, Path=Value}"
-                            
-                            />
+                            RotationAngle="{Binding Source={x:Reference AngleSlider}, Path=Value}" />
+
+        <Button Grid.Row="2"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Text="Do it"
+                Command="{Binding Source={x:Reference SpinnerWheel}, Path=DoItCommand}" />
 
     </Grid>
 </ContentPage>
