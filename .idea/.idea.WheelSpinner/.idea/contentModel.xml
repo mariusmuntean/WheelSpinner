@@ -39,6 +39,7 @@
             </e>
           </e>
         </e>
+        <e p="ObjToStr.cs" t="Include" />
         <e p="Views" t="Include">
           <e p="SpinnerWheel.cs" t="Include" />
         </e>

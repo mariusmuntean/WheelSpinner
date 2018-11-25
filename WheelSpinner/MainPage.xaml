@@ -8,10 +8,18 @@
     xmlns:local="clr-namespace:WheelSpinner"
     xmlns:views="clr-namespace:WheelSpinner.Views;assembly=WheelSpinner"
     x:Class="WheelSpinner.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ObjToStr x:Key="ObjToStrConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
@@ -28,11 +36,24 @@
                             HeightRequest="600"
                             RotationAngle="{Binding Source={x:Reference AngleSlider}, Path=Value}" />
 
-        <Button Grid.Row="2"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Text="Do it"
-                Command="{Binding Source={x:Reference SpinnerWheel}, Path=DoItCommand}" />
+        <StackLayout Grid.Row="2"
+                     Orientation="Horizontal"
+                     HorizontalOptions="Center">
+            <Button x:Name="GoLeft"
+                    HorizontalOptions="Center"
+                    Text=" LEFT "
+                    Command="{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}" />
+
+
+            <Button x:Name="GoRight"
+                    HorizontalOptions="Center"
+                    Text=" RIGHT "
+                    Command="{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}" />
+        </StackLayout>
+
+        <Label Grid.Row="3"
+               HorizontalOptions="Center"
+               Text="{Binding Source={x:Reference SpinnerWheel}, Path=SelectedItem, Converter={StaticResource ObjToStrConverter}}" />
 
     </Grid>
 </ContentPage>
