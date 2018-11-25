@@ -49,7 +49,7 @@ namespace WheelSpinner.Views
         private readonly SKPaint _thickStrokePaint = new SKPaint
         {
             Style = SKPaintStyle.Stroke,
-            Color = Color.FromHex("FF6600").ToSKColor(),
+            Color = Color.FromHex("#AAFF6600").ToSKColor(),
             StrokeWidth = 8,
             IsAntialias = true
         };
@@ -57,7 +57,7 @@ namespace WheelSpinner.Views
         private readonly SKPaint _thinStrokePaint = new SKPaint
         {
             Style = SKPaintStyle.Stroke,
-            Color = Color.FromHex("FF6600").ToSKColor(),
+            Color = Color.FromHex("#AAFF6600").ToSKColor(),
             StrokeWidth = 4,
             IsAntialias = true
         };
@@ -269,6 +269,13 @@ namespace WheelSpinner.Views
                 if (i - 1 == pressedIdx)
                 {
                     canvas.Scale(1.1f);
+                    _thickStrokePaint.Color = _thickStrokePaint.Color.WithAlpha(255);
+                    _thinStrokeTextPaint.Color = _thinStrokeTextPaint.Color.WithAlpha(255);
+                }
+                else
+                {
+                    _thickStrokePaint.Color = _thickStrokePaint.Color.WithAlpha(128);
+                    _thinStrokeTextPaint.Color = _thinStrokeTextPaint.Color.WithAlpha(128);
                 }
 
                 canvas.DrawCircle(0, 0, littleCircleRadius, _thickStrokePaint);
@@ -279,15 +286,14 @@ namespace WheelSpinner.Views
                     littleCircleCenter.Y + (littleCircleRadius)
                 );
                 littleCircleBoundingRects.Add(hitAreaRect);
-                canvas.DrawRect(hitAreaRect, _hitAreaPaint);
 
                 var text = $"{i.ToString()}";
                 var textRect = new SKRect();
                 _thinStrokePaint.MeasureText(text, ref textRect);
                 var textLocation = new SKPoint(0, textRect.Height);
                 canvas.DrawText(text, textLocation, _thinStrokeTextPaint);
+                
                 angleIncrement += 30;
-
                 canvas.Restore();
             }
         }
