@@ -105,13 +105,12 @@ namespace WheelSpinner.Views
 
             DoItCommand = new Command(() =>
             {
-                var initialRotationAngleValue = RotationAngle;
-                var rotationAnimation = new Animation(d =>
+                var rotationAnimation = new Animation(rotationAngle =>
                     {
-                        RotationAngle = initialRotationAngleValue + d;
+                        RotationAngle = rotationAngle;
                         _canvasView.InvalidateSurface();
                     },
-                    0.0d, 30.0d,
+                    RotationAngle, RotationAngle + 60.0d,
                     Easing.CubicInOut);
                 rotationAnimation.Commit(this, "RotationAnimation", 1000 / 60, 400);
             });
@@ -128,7 +127,7 @@ namespace WheelSpinner.Views
 
                     var pressedContentBoundingRect =
                         littleCircleBoundingRects.FirstOrDefault(rect => rect.Contains(e.Location - _centerPoint));
-                    if (pressedContentBoundingRect != null)
+                    if (pressedContentBoundingRect != SKRect.Empty)
                     {
                         touchId = e.Id;
                         pressedIdx = littleCircleBoundingRects.IndexOf(pressedContentBoundingRect);
@@ -200,13 +199,13 @@ namespace WheelSpinner.Views
 
             e.Handled = true;
 
-            Console.WriteLine($"Rotation angle: {RotationAngle}°");
+//            Console.WriteLine($"Rotation angle: {RotationAngle}°");
             _canvasView.InvalidateSurface();
         }
 
         private void SnapToClosestSlot()
         {
-            var slotCount = 12;
+            var slotCount = 6;
             var slotAngle = 360.0d / slotCount;
 
             var prevSlotIndex = Math.Floor(RotationAngle / slotAngle);
@@ -238,15 +237,16 @@ namespace WheelSpinner.Views
 
             canvas.Clear();
 
-            _centerPoint = new SKPoint(info.Width / 2f, info.Height / 2f);
+            _centerPoint = new SKPoint(info.Width, info.Height / 2f);
 
             // Move canvas origin to the center of the screen
-            canvas.Translate(_centerPoint);
+//            canvas.Translate(_centerPoint);
+            canvas.Translate(info.Width, info.Height / 2f);
 
             // Set the desired rotation angle
 //            canvas.RotateDegrees((float) RotationAngle);
 
-            var radius = Math.Min(info.Width / 2f, info.Height / 2f) * 0.8f;
+            var radius = Math.Min(info.Width, info.Height / 2f) * 0.8f;
 
             // Draw large circle
             canvas.DrawCircle(new SKPoint(), radius, _thinStrokePaint);
@@ -255,7 +255,7 @@ namespace WheelSpinner.Views
             var angleIncrement = 0.0f;
             var littleCircleRadius = radius * 0.1f;
             littleCircleBoundingRects.Clear();
-            for (var i = 1; i < 13; i++)
+            for (var i = 0; i < 6; i++)
             {
                 canvas.Save();
 
@@ -266,7 +266,7 @@ namespace WheelSpinner.Views
                 canvas.Translate(littleCircleCenter);
 
                 // Highlight pressed content
-                if (i - 1 == pressedIdx)
+                if (i == pressedIdx)
                 {
                     canvas.Scale(1.1f);
                     _thickStrokePaint.Color = _thickStrokePaint.Color.WithAlpha(255);
@@ -287,13 +287,13 @@ namespace WheelSpinner.Views
                 );
                 littleCircleBoundingRects.Add(hitAreaRect);
 
-                var text = $"{i.ToString()}";
+                var text = $"{((i % 3) + 1).ToString()}";
                 var textRect = new SKRect();
                 _thinStrokePaint.MeasureText(text, ref textRect);
                 var textLocation = new SKPoint(0, textRect.Height);
                 canvas.DrawText(text, textLocation, _thinStrokeTextPaint);
-                
-                angleIncrement += 30;
+
+                angleIncrement += 60;
                 canvas.Restore();
             }
         }
