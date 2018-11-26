@@ -13,6 +13,8 @@ namespace WheelSpinner.Views
         private const double DegreesToRadianFactor = Math.PI / 180;
         private const double RadianToDegreesFactor = 180 / Math.PI;
 
+        #region PROPERTIES
+        
         public static readonly BindableProperty GoLeftCommandProperty = BindableProperty.Create("GoLeftCommand",
             typeof(ICommand),
             typeof(SpinnerWheel));
@@ -79,6 +81,8 @@ namespace WheelSpinner.Views
             get => GetValue(SelectedItemProperty);
             set => SetValue(SelectedItemProperty, value);
         }
+
+        #endregion
 
         private readonly SKCanvasView _canvasView;
 
@@ -184,7 +188,7 @@ namespace WheelSpinner.Views
                         // Save the move location and undo center-point translation
                         currentPoint = e.Location - _centerPoint;
 
-                        /// Compute the vector angle
+                        // Compute the vector angle
                         var dotProduct = currentPoint.X * prevPoint.X
                                          + currentPoint.Y * prevPoint.Y;
                         var vectorMagnitude = Math.Sqrt(Math.Pow(currentPoint.X, 2) + Math.Pow(currentPoint.Y, 2))
