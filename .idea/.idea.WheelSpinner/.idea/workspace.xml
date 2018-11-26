@@ -7,7 +7,13 @@
     <bookmark url="file://$PROJECT_DIR$/WheelSpinner/MainPage.xaml" line="43" mnemonic="7" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eeecfb84-ad9c-4f61-b723-1ac6f9e3ae4c" name="Default Changelist" comment="" />
+    <list default="true" id="eeecfb84-ad9c-4f61-b723-1ac6f9e3ae4c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/WheelSpinner/ViewModels/MainPageViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WheelSpinner/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WheelSpinner/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WheelSpinner/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WheelSpinner/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WheelSpinner/MainPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/WheelSpinner/MainPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WheelSpinner/Views/SpinnerWheel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WheelSpinner/Views/SpinnerWheel.cs" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,26 +65,71 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="741484957">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="cs" value="1" />
+          <entry key="xaml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="C#" value="1" />
+          <entry key="XAML" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="cs" value="46" />
+          <entry key="xaml" value="59" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="C#" value="46" />
+          <entry key="XAML" value="59" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WheelSpinner/MainPage.xaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1045">
-              <caret line="55" column="133" selection-start-line="55" selection-start-column="133" selection-end-line="55" selection-end-column="133" />
+            <state relative-caret-position="806">
+              <caret line="54" column="34" lean-forward="true" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
               <folding>
-                <marker date="1543184307242" expanded="true" signature="48:2073" ph="&lt;&lt;ContentPage.Resources&gt;&#10;        &lt;ResourceDictionary&gt;&#10;            &lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;&#10;        &lt;/ResourceDictionary&gt;&#10;    &lt;/ContentPage.Resources&gt; &lt;Grid&gt;&#10;        &lt;Grid.RowDefinitions&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;*&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;        &lt;/Grid.RowDefinitions&gt;&#10;&#10;        &lt;Slider x:Name=&quot;AngleSlider&quot;&#10;                Margin=&quot;10&quot;&#10;                HeightRequest=&quot;50&quot;&#10;                Minimum=&quot;-360&quot;&#10;                Maximum=&quot;360&quot; /&gt;&#10;&#10;        &lt;views:SpinnerWheel Grid.Row=&quot;1&quot;&#10;                            x:Name=&quot;SpinnerWheel&quot;&#10;                            BackgroundColor=&quot;LightGray&quot;&#10;                            WidthRequest=&quot;600&quot;&#10;                            HeightRequest=&quot;600&quot;&#10;                            RotationAngle=&quot;{Binding Source={x:Reference AngleSlider}, Path=Value}&quot; /&gt;&#10;&#10;        &lt;StackLayout Grid.Row=&quot;2&quot;&#10;                     Orientation=&quot;Horizontal&quot;&#10;                     HorizontalOptions=&quot;Center&quot;&gt;&#10;            &lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt;&#10;&#10;&#10;            &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;&#10;        &lt;/StackLayout&gt;&#10;&#10;        &lt;Label Grid.Row=&quot;3&quot;&#10;               HorizontalOptions=&quot;Center&quot;&#10;               Text=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=SelectedItem, Converter={StaticResource ObjToStrConverter}}&quot; /&gt;&#10;&#10;    &lt;/Grid&gt;.../&gt;" />
-                <marker date="1543184307242" expanded="true" signature="330:498" ph="&lt;&lt;ResourceDictionary&gt;&#10;            &lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;&#10;        &lt;/ResourceDictionary&gt;.../&gt;" />
-                <marker date="1543184307242" expanded="true" signature="362:469" ph="&lt;&lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;.../&gt;" />
-                <marker date="1543184307242" expanded="true" signature="504:2058" ph="&lt;&lt;Grid.RowDefinitions&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;*&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;        &lt;/Grid.RowDefinitions&gt; &lt;Slider x:Name=&quot;AngleSlider&quot;&#10;                Margin=&quot;10&quot;&#10;                HeightRequest=&quot;50&quot;&#10;                Minimum=&quot;-360&quot;&#10;                Maximum=&quot;360&quot; /&gt; &lt;views:SpinnerWheel Grid.Row=&quot;1&quot;&#10;                            x:Name=&quot;SpinnerWheel&quot;&#10;                            BackgroundColor=&quot;LightGray&quot;&#10;                            WidthRequest=&quot;600&quot;&#10;                            HeightRequest=&quot;600&quot;&#10;                            RotationAngle=&quot;{Binding Source={x:Reference AngleSlider}, Path=Value}&quot; /&gt; &lt;StackLayout Grid.Row=&quot;2&quot;&#10;                     Orientation=&quot;Horizontal&quot;&#10;                     HorizontalOptions=&quot;Center&quot;&gt;&#10;            &lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt;&#10;&#10;&#10;            &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;&#10;        &lt;/StackLayout&gt; &lt;Label Grid.Row=&quot;3&quot;&#10;               HorizontalOptions=&quot;Center&quot;&#10;               Text=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=SelectedItem, Converter={StaticResource ObjToStrConverter}}&quot; /&gt;.../&gt;" />
-                <marker date="1543184307242" expanded="true" signature="519:744" ph="&lt;&lt;RowDefinition Height=&quot;Auto&quot; /&gt; &lt;RowDefinition Height=&quot;*&quot; /&gt; &lt;RowDefinition Height=&quot;Auto&quot; /&gt; &lt;RowDefinition Height=&quot;Auto&quot; /&gt;.../&gt;" />
-                <marker date="1543184307242" expanded="true" signature="754:909" ph="&lt;.../&gt;" />
-                <marker date="1543184307242" expanded="true" signature="919:1254" ph="&lt;.../&gt;" />
-                <marker date="1543184307242" expanded="true" signature="1264:1840" ph="&lt;&lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt; &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;.../&gt;" />
-                <marker date="1543184307242" expanded="true" signature="1397:1598" ph="&lt;.../&gt;" />
-                <marker date="1543184307242" expanded="true" signature="1613:1817" ph="&lt;.../&gt;" />
-                <marker date="1543184307242" expanded="true" signature="1850:2045" ph="&lt;.../&gt;" />
+                <marker date="1543274354070" expanded="true" signature="48:2316" ph="&lt;&lt;ContentPage.Resources&gt;&#10;        &lt;ResourceDictionary&gt;&#10;            &lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;&#10;        &lt;/ResourceDictionary&gt;&#10;    &lt;/ContentPage.Resources&gt; &lt;ContentPage.BindingContext&gt;&#10;        &lt;viewModels:MainPageViewModel /&gt;&#10;    &lt;/ContentPage.BindingContext&gt; &lt;Grid&gt;&#10;        &lt;Grid.RowDefinitions&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;*&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;        &lt;/Grid.RowDefinitions&gt;&#10;&#10;        &lt;Slider x:Name=&quot;AngleSlider&quot;&#10;                Margin=&quot;10&quot;&#10;                HeightRequest=&quot;50&quot;&#10;                Minimum=&quot;-360&quot;&#10;                Maximum=&quot;360&quot; /&gt;&#10;&#10;        &lt;views:SpinnerWheel Grid.Row=&quot;1&quot;&#10;                            x:Name=&quot;SpinnerWheel&quot;&#10;                            BackgroundColor=&quot;LightGray&quot;&#10;                            WidthRequest=&quot;600&quot;&#10;                            HeightRequest=&quot;600&quot;&#10;                            RotationAngle=&quot;{Binding Source={x:Reference AngleSlider}, Path=Value}&quot;&#10;                            Items=&quot;{Binding Letters}&quot;/&gt;&#10;&#10;        &lt;StackLayout Grid.Row=&quot;2&quot;&#10;                     Orientation=&quot;Horizontal&quot;&#10;                     HorizontalOptions=&quot;Center&quot;&gt;&#10;            &lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt;&#10;&#10;            &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;&#10;        &lt;/StackLayout&gt;&#10;&#10;        &lt;Label Grid.Row=&quot;3&quot;&#10;               HorizontalOptions=&quot;Center&quot;&#10;               Text=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=SelectedItem, Converter={StaticResource ObjToStrConverter}}&quot; /&gt;&#10;    &lt;/Grid&gt;.../&gt;" />
+                <marker date="1543274354070" expanded="true" signature="413:581" ph="&lt;&lt;ResourceDictionary&gt;&#10;            &lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;&#10;        &lt;/ResourceDictionary&gt;.../&gt;" />
+                <marker date="1543274354070" expanded="true" signature="445:552" ph="&lt;&lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;.../&gt;" />
+                <marker date="1543274354070" expanded="true" signature="587:690" ph="&lt;&lt;viewModels:MainPageViewModel /&gt;.../&gt;" />
+                <marker date="1543274354070" expanded="true" signature="696:2301" ph="&lt;&lt;Grid.RowDefinitions&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;*&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;        &lt;/Grid.RowDefinitions&gt; &lt;Slider x:Name=&quot;AngleSlider&quot;&#10;                Margin=&quot;10&quot;&#10;                HeightRequest=&quot;50&quot;&#10;                Minimum=&quot;-360&quot;&#10;                Maximum=&quot;360&quot; /&gt; &lt;views:SpinnerWheel Grid.Row=&quot;1&quot;&#10;                            x:Name=&quot;SpinnerWheel&quot;&#10;                            BackgroundColor=&quot;LightGray&quot;&#10;                            WidthRequest=&quot;600&quot;&#10;                            HeightRequest=&quot;600&quot;&#10;                            RotationAngle=&quot;{Binding Source={x:Reference AngleSlider}, Path=Value}&quot;&#10;                            Items=&quot;{Binding Letters}&quot;/&gt; &lt;StackLayout Grid.Row=&quot;2&quot;&#10;                     Orientation=&quot;Horizontal&quot;&#10;                     HorizontalOptions=&quot;Center&quot;&gt;&#10;            &lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt;&#10;&#10;            &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;&#10;        &lt;/StackLayout&gt; &lt;Label Grid.Row=&quot;3&quot;&#10;               HorizontalOptions=&quot;Center&quot;&#10;               Text=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=SelectedItem, Converter={StaticResource ObjToStrConverter}}&quot; /&gt;.../&gt;" />
+                <marker date="1543274354070" expanded="true" signature="711:936" ph="&lt;&lt;RowDefinition Height=&quot;Auto&quot; /&gt; &lt;RowDefinition Height=&quot;*&quot; /&gt; &lt;RowDefinition Height=&quot;Auto&quot; /&gt; &lt;RowDefinition Height=&quot;Auto&quot; /&gt;.../&gt;" />
+                <marker date="1543274354070" expanded="true" signature="946:1101" ph="&lt;.../&gt;" />
+                <marker date="1543274354070" expanded="true" signature="1111:1499" ph="&lt;.../&gt;" />
+                <marker date="1543274354070" expanded="true" signature="1509:2084" ph="&lt;&lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt; &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;.../&gt;" />
+                <marker date="1543274354070" expanded="true" signature="1642:1843" ph="&lt;.../&gt;" />
+                <marker date="1543274354070" expanded="true" signature="1857:2061" ph="&lt;.../&gt;" />
+                <marker date="1543274354070" expanded="true" signature="2094:2289" ph="&lt;.../&gt;" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WheelSpinner.UWP/MainPage.xaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+              <folding>
+                <marker date="1543270609157" expanded="true" signature="0:535" ph="&lt;.../&gt;" />
               </folding>
             </state>
           </provider>
@@ -87,59 +138,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WheelSpinner/ObjToStr.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
+            <state relative-caret-position="160">
               <caret line="10" column="66" selection-start-line="10" selection-start-column="66" selection-end-line="10" selection-end-column="66" />
-              <folding>
-                <marker date="1543184898234" expanded="false" signature="6:62" ph="..." />
-                <marker date="1543184898234" expanded="true" signature="86:507" ph="{...}" />
-                <marker date="1543184898234" expanded="true" signature="132:505" ph="{...}" />
-                <marker date="1543184898234" expanded="true" signature="238:325" ph="{...}" />
-                <marker date="1543184898234" expanded="true" signature="430:499" ph="{...}" />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WheelSpinner/Views/SpinnerWheel.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="58" column="33" lean-forward="true" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
+            <state relative-caret-position="440">
+              <caret line="61" column="31" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
               <folding>
-                <marker date="1543185019197" expanded="true" signature="6:192" ph="..." />
-                <marker date="1543185019197" expanded="true" signature="222:13909" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="268:13907" ph="{...}" />
-                <marker date="1543185019197" expanded="false" signature="628:770" ph="{...}" />
-                <marker date="1543185019197" expanded="false" signature="991:1135" ph="{...}" />
-                <marker date="1543185019197" expanded="false" signature="1460:1600" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="1709:1802" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="2084:2214" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="2315:2408" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="2669:2798" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="2926:3098" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="3173:3345" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="3424:3847" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="3994:5282" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="4301:4744" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="4386:4542" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="4794:5238" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="4879:5035" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="5470:8876" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="5514:8719" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="5810:6147" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="6259:8162" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="7337:7444" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="7981:8088" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="8918:10527" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="9594:9726" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="9890:10515" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="10781:13901" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="11020:11115" ph="/* Move canvas origin to the center of the screen ... */" />
-                <marker date="1543185019197" expanded="true" signature="11189:11281" ph="/* Set the desired rotation angle ... */" />
-                <marker date="1543185019197" expanded="true" signature="11716:13891" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="12185:12439" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="12488:12742" ph="{...}" />
-                <marker date="1543185019197" expanded="true" signature="12763:12977" ph="{...}" />
+                <marker date="1543273628956" expanded="false" signature="6:161" ph="..." />
+                <marker date="1543273628956" expanded="true" signature="191:14185" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="237:14183" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="389:2822" ph="PROPERTIES" />
+                <marker date="1543273628956" expanded="true" signature="625:766" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="987:1130" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="1454:1593" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="1702:1795" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="2078:2207" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="2308:2401" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="2662:2791" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="2897:3069" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="3144:3316" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="3395:3818" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="4018:5307" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="4325:4768" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="4410:4566" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="4818:5262" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="4903:5059" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="5498:9102" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="5542:8933" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="5839:6180" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="6294:8210" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="7380:7487" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="8028:8135" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="9144:10757" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="9820:9952" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="10116:10745" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="11029:14177" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="11268:11375" ph="/* Move canvas origin to the center of the screen ... */" />
+                <marker date="1543273628956" expanded="true" signature="11449:11553" ph="/* Set the desired rotation angle ... */" />
+                <marker date="1543273628956" expanded="true" signature="11990:14167" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="12458:12712" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="12762:13016" ph="{...}" />
+                <marker date="1543273628956" expanded="true" signature="13037:13251" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -158,24 +203,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/WheelSpinner/App.xaml.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/WheelSpinner/ObjToStr.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file:///Library/Frameworks/Xamarin.Mac.framework/Versions/5.0.0.0/src/Xamarin.Mac/external/corefx/src/System.Linq/src/System/Linq/First.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/WheelSpinner.macOS/ViewController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB90EF3B-C536-442B-8BF4-49FAF5FE1D50/5e/ab243e79/SKPoint.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/WheelSpinner/MainPage.xaml.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/WheelSpinner/MainPage.xaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2213E650-4125-4F04-B27A-E6E57D256A86/c4/5d194492/BindableProperty.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2213E650-4125-4F04-B27A-E6E57D256A86/25/3fdbb781/Animation.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2213E650-4125-4F04-B27A-E6E57D256A86/8d/f8ae3375/Color.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB90EF3B-C536-442B-8BF4-49FAF5FE1D50/f4/8db9aa91/SKRect.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB90EF3B-C536-442B-8BF4-49FAF5FE1D50/3b/b95a456d/SKPaint.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2213E650-4125-4F04-B27A-E6E57D256A86/32/6693f48a/AnimationExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file:///Library/Frameworks/Xamarin.Mac.framework/Versions/5.0.0.0/src/Xamarin.Mac/external/corefx/src/Common/src/CoreLib/System/Collections/Generic/KeyValuePair.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WheelSpinner/Views/SpinnerWheel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2213E650-4125-4F04-B27A-E6E57D256A86/fa/1127f703/BindableObject.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/WheelSpinner.macOS/Main.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WheelSpinner.macOS/ViewController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WheelSpinner/App.xaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WheelSpinner/ViewModels/MainPageViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WheelSpinner.macOS/AppDelegate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WheelSpinner/MainPage.xaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WheelSpinner/ObjToStr.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WheelSpinner/MainPage.xaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WheelSpinner.UWP/MainPage.xaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WheelSpinner.macOS/Main.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -190,9 +227,11 @@
         <option value="$PROJECT_DIR$/WheelSpinner/MainPage.xaml.cs" />
         <option value="$PROJECT_DIR$/WheelSpinner.Android/WheelSpinner.Android.csproj" />
         <option value="$PROJECT_DIR$/WheelSpinner.macOS/AppDelegate.cs" />
-        <option value="$PROJECT_DIR$/WheelSpinner/MainPage.xaml" />
         <option value="$PROJECT_DIR$/WheelSpinner/ObjToStr.cs" />
         <option value="$PROJECT_DIR$/WheelSpinner/Views/SpinnerWheel.cs" />
+        <option value="$PROJECT_DIR$/WheelSpinner/ViewModels/MainPageViewModelcs.cs" />
+        <option value="$PROJECT_DIR$/WheelSpinner/ViewModels/MainPageViewModel.cs" />
+        <option value="$PROJECT_DIR$/WheelSpinner/MainPage.xaml" />
       </list>
     </option>
   </component>
@@ -202,11 +241,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="930" />
-    <option name="y" value="23" />
-    <option name="width" value="2309" />
-    <option name="height" value="2137" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="842" />
+    <option name="width" value="2310" />
+    <option name="height" value="2168" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -216,6 +254,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -232,19 +271,35 @@
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="WheelSpinner" type="24d0babc:SolutionExplorerModelNode" />
               <item name="WheelSpinner" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="ViewModels" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="WheelSpinner" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="WheelSpinner" type="24d0babc:SolutionExplorerModelNode" />
               <item name="Views" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="WheelSpinner" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="WheelSpinner" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="MainPage.xaml" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="WheelSpinner" type="24d0babc:SolutionExplorerModelNode" />
               <item name="WheelSpinner.Android" type="24d0babc:SolutionExplorerModelNode" />
             </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="WheelSpinner" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="WheelSpinner.UWP" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
           </expand>
           <select />
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -252,7 +307,7 @@
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.XAML" />
+    <property name="settings.editor.selected.configurable" value="XamlPreviewOptionsPage" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -279,7 +334,7 @@
       <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
-      <option name="PROJECT_KIND" value="XamarinMacOS" />
+      <option name="PROJECT_KIND" value="Unloaded" />
       <option name="PROJECT_TFM" value="Xamarin.Mac,Version=v2.0" />
       <method v="2">
         <option name="Build" enabled="true" />
@@ -290,8 +345,8 @@
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="DEPLOY_BEHAVIOUR_NAME" value="Default" />
       <option name="DEPLOY_TARGET_BEHAVIOUR_NAME" value="ConnectedDevice" />
-      <option name="DEFAULT_EMULATOR_TO_RUN" value="" />
-      <option name="DEFAULT_DEVICE_TO_RUN" value="unknown-sm_t520-32044edf2938b0bb" />
+      <option name="DEFAULT_EMULATOR_TO_RUN" value="samsung-sm_g955f-ce04171471d9800b0c" />
+      <option name="DEFAULT_DEVICE_TO_RUN" value="" />
       <method v="2">
         <option name="Build" enabled="true" />
       </method>
@@ -336,6 +391,7 @@
       <updated>1543045407739</updated>
       <workItem from="1543045410362" duration="28900000" />
       <workItem from="1543134327227" duration="20320000" />
+      <workItem from="1543273582633" duration="1157000" />
     </task>
     <task id="LOCAL-00001" summary="First commit - also updated Xamarin Forms and added macOS project">
       <created>1543045546057</created>
@@ -439,7 +495,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49220000" />
+    <option name="totallyTimeSpent" value="50377000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -451,14 +507,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="930" y="23" width="2309" height="2137" extended-state="0" />
+    <frame x="674" y="0" width="1848" height="1734" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1288046" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13926175" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Stacktrace" weight="0.32995567" />
+      <window_info anchor="bottom" id="XAML Preview" weight="0.40721977" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32987142" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.23936696" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.23875871" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.27002966" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -470,8 +528,9 @@
       <window_info anchor="bottom" id="Unit Tests" order="11" />
       <window_info anchor="bottom" id="Terminal" order="12" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
-      <window_info anchor="bottom" id="Build" order="14" weight="0.24925816" />
+      <window_info anchor="bottom" id="Build" order="14" visible="true" weight="0.2488917" />
       <window_info anchor="bottom" id="Messages" order="15" />
+      <window_info anchor="right" id="Unit Tests Coverage" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -579,37 +638,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CocoaApp1/Info.plist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CocoaApp1/ViewController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/CocoaApp1/Info.plist" />
+    <entry file="file://$PROJECT_DIR$/CocoaApp1/ViewController.cs" />
     <entry file="file://$PROJECT_DIR$/WheelSpinner.macOS/Main.storyboard">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/CocoaApp1/Main.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CocoaApp1/AppDelegate.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/CocoaApp1/Main.cs" />
+    <entry file="file://$PROJECT_DIR$/CocoaApp1/AppDelegate.cs" />
     <entry file="file://$PROJECT_DIR$/WheelSpinner.macOS/ViewController.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -634,266 +669,9 @@
     <entry file="file://$PROJECT_DIR$/WheelSpinner/App.xaml.cs">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB90EF3B-C536-442B-8BF4-49FAF5FE1D50/5e/ab243e79/SKPoint.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5">
-          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB90EF3B-C536-442B-8BF4-49FAF5FE1D50/f4/8db9aa91/SKRect.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3698">
-          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2213E650-4125-4F04-B27A-E6E57D256A86/8d/f8ae3375/Color.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="973" column="58" lean-forward="true" selection-start-line="973" selection-start-column="58" selection-end-line="973" selection-end-column="58" />
-          <folding>
-            <marker date="1543134860089" expanded="true" signature="0:322" ph="/* Decompiled with JetBrains decompiler ... */" />
-            <marker date="1543134860089" expanded="false" signature="330:451" ph="..." />
-            <marker date="1543134860089" expanded="true" signature="476:57189" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="481:3161" ph="///Class that represents a color and exposes it as RGBA and HSL values. ... " />
-            <marker date="1543134860089" expanded="true" signature="3341:57187" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="3350:3461" ph="///AliceBlue, the color that is represented by the RGB value ##FFF0F8FF. ... " />
-            <marker date="1543134860089" expanded="true" signature="3557:3671" ph="///AntiqueWhite, the color that is represented by the RGB value ##FFFAEBD7. ... " />
-            <marker date="1543134860089" expanded="true" signature="3754:3858" ph="///Aqua, the color that is represented by the RGB value ##00ffff. ... " />
-            <marker date="1543134860089" expanded="true" signature="3963:4075" ph="///Aquamarine, the color that is represented by the RGB value ##FF7FFFD4. ... " />
-            <marker date="1543134860089" expanded="true" signature="4189:4296" ph="///Azure, the color that is represented by the RGB value ##FFF0FFFF. ... " />
-            <marker date="1543134860089" expanded="true" signature="4404:4511" ph="///Beige, the color that is represented by the RGB value ##FFF5F5DC. ... " />
-            <marker date="1543134860089" expanded="true" signature="4587:4695" ph="///Bisque, the color that is represented by the RGB value ##FFFFE4C4. ... " />
-            <marker date="1543134860089" expanded="true" signature="4788:4893" ph="///Black, the color that is represented by the RGB value ##000000. ... " />
-            <marker date="1543134860089" expanded="true" signature="4963:5079" ph="///BlanchedAlmond, the color that is represented by the RGB value ##FFFFEBCD. ... " />
-            <marker date="1543134860089" expanded="true" signature="5180:5284" ph="///Blue, the color that is represented by the RGB value ##0000ff. ... " />
-            <marker date="1543134860089" expanded="true" signature="5371:5483" ph="///BlueViolet, the color that is represented by the RGB value ##FF8A2BE2. ... " />
-            <marker date="1543134860089" expanded="true" signature="5563:5670" ph="///Brown, the color that is represented by the RGB value ##FFA52A2A. ... " />
-            <marker date="1543134860089" expanded="true" signature="5744:5855" ph="///BurlyWood, the color that is represented by the RGB value ##FFDEB887. ... " />
-            <marker date="1543134860089" expanded="true" signature="5935:6046" ph="///CadetBlue, the color that is represented by the RGB value ##FF5F9EA0. ... " />
-            <marker date="1543134860089" expanded="true" signature="6125:6237" ph="///Chartreuse, the color that is represented by the RGB value ##FF7FFF00. ... " />
-            <marker date="1543134860089" expanded="true" signature="6349:6460" ph="///Chocolate, the color that is represented by the RGB value ##FFD2691E. ... " />
-            <marker date="1543134860089" expanded="true" signature="6539:6646" ph="///Coral, the color that is represented by the RGB value ##FFFF7F50. ... " />
-            <marker date="1543134860089" expanded="true" signature="6754:6870" ph="///CornflowerBlue, the color that is represented by the RGB value ##FF6495ED. ... " />
-            <marker date="1543134860089" expanded="true" signature="6955:7065" ph="///Cornsilk, the color that is represented by the RGB value ##FFFFF8DC. ... " />
-            <marker date="1543134860089" expanded="true" signature="7160:7269" ph="///Crimson, the color that is represented by the RGB value ##FFDC143C. ... " />
-            <marker date="1543134860089" expanded="true" signature="7345:7451" ph="///Cyan, the color that is represented by the RGB value ##FF00FFFF. ... " />
-            <marker date="1543134860089" expanded="true" signature="7556:7666" ph="///DarkBlue, the color that is represented by the RGB value ##FF00008B. ... " />
-            <marker date="1543134860089" expanded="true" signature="7741:7851" ph="///DarkCyan, the color that is represented by the RGB value ##FF008B8B. ... " />
-            <marker date="1543134860089" expanded="true" signature="7928:8043" ph="///DarkGoldenrod, the color that is represented by the RGB value ##FFB8860B. ... " />
-            <marker date="1543134860089" expanded="true" signature="8126:8236" ph="///DarkGray, the color that is represented by the RGB value ##FFA9A9A9. ... " />
-            <marker date="1543134860089" expanded="true" signature="8315:8426" ph="///DarkGreen, the color that is represented by the RGB value ##FF006400. ... " />
-            <marker date="1543134860089" expanded="true" signature="8502:8613" ph="///DarkKhaki, the color that is represented by the RGB value ##FFBDB76B. ... " />
-            <marker date="1543134860089" expanded="true" signature="8693:8806" ph="///DarkMagenta, the color that is represented by the RGB value ##FF8B008B. ... " />
-            <marker date="1543134860089" expanded="true" signature="8886:9002" ph="///DarkOliveGreen, the color that is represented by the RGB value ##FF556B2F. ... " />
-            <marker date="1543134860089" expanded="true" signature="9085:9197" ph="///DarkOrange, the color that is represented by the RGB value ##FFFF8C00. ... " />
-            <marker date="1543134860089" expanded="true" signature="9292:9404" ph="///DarkOrchid, the color that is represented by the RGB value ##FF9932CC. ... " />
-            <marker date="1543134860089" expanded="true" signature="9484:9593" ph="///DarkRed, the color that is represented by the RGB value ##FF8B0000. ... " />
-            <marker date="1543134860089" expanded="true" signature="9667:9779" ph="///DarkSalmon, the color that is represented by the RGB value ##FFE9967A. ... " />
-            <marker date="1543134860089" expanded="true" signature="9860:9974" ph="///DarkSeaGreen, the color that is represented by the RGB value ##FF8FBC8F. ... " />
-            <marker date="1543134860089" expanded="true" signature="10057:10172" ph="///DarkSlateBlue, the color that is represented by the RGB value ##FF483D8B. ... " />
-            <marker date="1543134860089" expanded="true" signature="10254:10369" ph="///DarkSlateGray, the color that is represented by the RGB value ##FF2F4F4F. ... " />
-            <marker date="1543134860089" expanded="true" signature="10450:10565" ph="///DarkTurquoise, the color that is represented by the RGB value ##FF00CED1. ... " />
-            <marker date="1543134860089" expanded="true" signature="10647:10759" ph="///DarkViolet, the color that is represented by the RGB value ##FF9400D3. ... " />
-            <marker date="1543134860089" expanded="true" signature="10838:10948" ph="///DeepPink, the color that is represented by the RGB value ##FFFF1493. ... " />
-            <marker date="1543134860089" expanded="true" signature="11042:11155" ph="///DeepSkyBlue, the color that is represented by the RGB value ##FF00BFFF. ... " />
-            <marker date="1543134860089" expanded="true" signature="11251:11360" ph="///DimGray, the color that is represented by the RGB value ##FF696969. ... " />
-            <marker date="1543134860089" expanded="true" signature="11438:11550" ph="///DodgerBlue, the color that is represented by the RGB value ##FF1E90FF. ... " />
-            <marker date="1543134860089" expanded="true" signature="11646:11757" ph="///Firebrick, the color that is represented by the RGB value ##FFB22222. ... " />
-            <marker date="1543134860089" expanded="true" signature="11835:11948" ph="///FloralWhite, the color that is represented by the RGB value ##FFFFFAF0. ... " />
-            <marker date="1543134860089" expanded="true" signature="12046:12159" ph="///ForestGreen, the color that is represented by the RGB value ##FF228B22. ... " />
-            <marker date="1543134860089" expanded="true" signature="12239:12346" ph="///Fucshia, the color that is represented by the RGB value ##ff00ff. ... " />
-            <marker date="1543134860089" expanded="true" signature="12454:12662" ph="///Fucshia, the color that is represented by the RGB value ##ff00ff. Deprecated. See Remarks. ... " />
-            <marker date="1543134860089" expanded="true" signature="12857:12968" ph="///Gainsboro, the color that is represented by the RGB value ##FFDCDCDC. ... " />
-            <marker date="1543134860089" expanded="true" signature="13048:13160" ph="///GhostWhite, the color that is represented by the RGB value ##FFF8F8FF. ... " />
-            <marker date="1543134860089" expanded="true" signature="13257:13363" ph="///Gold, the color that is represented by the RGB value ##FFFFD700. ... " />
-            <marker date="1543134860089" expanded="true" signature="13452:13563" ph="///Goldenrod, the color that is represented by the RGB value ##FFDAA520. ... " />
-            <marker date="1543134860089" expanded="true" signature="13642:13746" ph="///Gray, the color that is represented by the RGB value ##808080. ... " />
-            <marker date="1543134860089" expanded="true" signature="13821:13926" ph="///Green, the color that is represented by the RGB value ##008000. ... " />
-            <marker date="1543134860089" expanded="true" signature="13998:14111" ph="///GreenYellow, the color that is represented by the RGB value ##FFADFF2F. ... " />
-            <marker date="1543134860089" expanded="true" signature="14208:14318" ph="///Honeydew, the color that is represented by the RGB value ##FFF0FFF0. ... " />
-            <marker date="1543134860089" expanded="true" signature="14413:14522" ph="///HotPink, the color that is represented by the RGB value ##FFFF69B4. ... " />
-            <marker date="1543134860089" expanded="true" signature="14616:14727" ph="///IndianRed, the color that is represented by the RGB value ##FFCD5C5C. ... " />
-            <marker date="1543134860089" expanded="true" signature="14805:14913" ph="///Indigo, the color that is represented by the RGB value ##FF4B0082. ... " />
-            <marker date="1543134860089" expanded="true" signature="14987:15094" ph="///Ivory, the color that is represented by the RGB value ##FFFFFFF0. ... " />
-            <marker date="1543134860089" expanded="true" signature="15202:15309" ph="///Khaki, the color that is represented by the RGB value ##FFF0E68C. ... " />
-            <marker date="1543134860089" expanded="true" signature="15385:15495" ph="///Lavender, the color that is represented by the RGB value ##FFE6E6FA. ... " />
-            <marker date="1543134860089" expanded="true" signature="15574:15689" ph="///LavenderBlush, the color that is represented by the RGB value ##FFFFF0F5. ... " />
-            <marker date="1543134860089" expanded="true" signature="15789:15900" ph="///LawnGreen, the color that is represented by the RGB value ##FF7CFC00. ... " />
-            <marker date="1543134860089" expanded="true" signature="15978:16092" ph="///LemonChiffon, the color that is represented by the RGB value ##FFFFFACD. ... " />
-            <marker date="1543134860089" expanded="true" signature="16191:16302" ph="///LightBlue, the color that is represented by the RGB value ##FFADD8E6. ... " />
-            <marker date="1543134860089" expanded="true" signature="16382:16494" ph="///LightCoral, the color that is represented by the RGB value ##FFF08080. ... " />
-            <marker date="1543134860089" expanded="true" signature="16575:16686" ph="///LightCyan, the color that is represented by the RGB value ##FFE0FFFF. ... " />
-            <marker date="1543134860089" expanded="true" signature="16798:16920" ph="///LightGoldenrodYellow, the color that is represented by the RGB value ##FFFAFAD2. ... " />
-            <marker date="1543134860089" expanded="true" signature="17011:17122" ph="///LightGray, the color that is represented by the RGB value ##FFD3D3D3. ... " />
-            <marker date="1543134860089" expanded="true" signature="17202:17314" ph="///LightGreen, the color that is represented by the RGB value ##FF90EE90. ... " />
-            <marker date="1543134860089" expanded="true" signature="17395:17506" ph="///LightPink, the color that is represented by the RGB value ##FFFFB6C1. ... " />
-            <marker date="1543134860089" expanded="true" signature="17602:17715" ph="///LightSalmon, the color that is represented by the RGB value ##FFFFA07A. ... " />
-            <marker date="1543134860089" expanded="true" signature="17813:17928" ph="///LightSeaGreen, the color that is represented by the RGB value ##FF20B2AA. ... " />
-            <marker date="1543134860089" expanded="true" signature="18011:18125" ph="///LightSkyBlue, the color that is represented by the RGB value ##FF87CEFA. ... " />
-            <marker date="1543134860089" expanded="true" signature="18208:18324" ph="///LightSlateGray, the color that is represented by the RGB value ##FF778899. ... " />
-            <marker date="1543134860089" expanded="true" signature="18409:18525" ph="///LightSteelBlue, the color that is represented by the RGB value ##FFB0C4DE. ... " />
-            <marker date="1543134860089" expanded="true" signature="18610:18723" ph="///LightYellow, the color that is represented by the RGB value ##FFFFFFE0. ... " />
-            <marker date="1543134860089" expanded="true" signature="18837:18941" ph="///Lime, the color that is represented by the RGB value ##00ff00. ... " />
-            <marker date="1543134860089" expanded="true" signature="19028:19139" ph="///LimeGreen, the color that is represented by the RGB value ##FF32CD32. ... " />
-            <marker date="1543134860089" expanded="true" signature="19217:19324" ph="///Linen, the color that is represented by the RGB value ##FFFAF0E6. ... " />
-            <marker date="1543134860089" expanded="true" signature="19400:19509" ph="///Magenta, the color that is represented by the RGB value ##FFFF00FF. ... " />
-            <marker date="1543134860089" expanded="true" signature="19617:19723" ph="///Maroon, the color that is represented by the RGB value ##800000. ... " />
-            <marker date="1543134860089" expanded="true" signature="19796:19914" ph="///MediumAquamarine, the color that is represented by the RGB value ##FF66CDAA. ... " />
-            <marker date="1543134860089" expanded="true" signature="20001:20113" ph="///MediumBlue, the color that is represented by the RGB value ##FF0000CD. ... " />
-            <marker date="1543134860089" expanded="true" signature="20190:20304" ph="///MediumOrchid, the color that is represented by the RGB value ##FFBA55D3. ... " />
-            <marker date="1543134860089" expanded="true" signature="20386:20500" ph="///MediumPurple, the color that is represented by the RGB value ##FF9370DB. ... " />
-            <marker date="1543134860089" expanded="true" signature="20583:20699" ph="///MediumSeaGreen, the color that is represented by the RGB value ##FF3CB371. ... " />
-            <marker date="1543134860089" expanded="true" signature="20783:20900" ph="///MediumSlateBlue, the color that is represented by the RGB value ##FF7B68EE. ... " />
-            <marker date="1543134860089" expanded="true" signature="20986:21105" ph="///MediumSpringGreen, the color that is represented by the RGB value ##FF00FA9A. ... " />
-            <marker date="1543134860089" expanded="true" signature="21191:21308" ph="///MediumTurquoise, the color that is represented by the RGB value ##FF48D1CC. ... " />
-            <marker date="1543134860089" expanded="true" signature="21393:21510" ph="///MediumVioletRed, the color that is represented by the RGB value ##FFC71585. ... " />
-            <marker date="1543134860089" expanded="true" signature="21595:21709" ph="///MidnightBlue, the color that is represented by the RGB value ##FF191970. ... " />
-            <marker date="1543134860089" expanded="true" signature="21790:21901" ph="///MintCream, the color that is represented by the RGB value ##FFF5FFFA. ... " />
-            <marker date="1543134860089" expanded="true" signature="21997:22108" ph="///MistyRose, the color that is represented by the RGB value ##FFFFE4E1. ... " />
-            <marker date="1543134860089" expanded="true" signature="22204:22314" ph="///Moccasin, the color that is represented by the RGB value ##FFFFE4B5. ... " />
-            <marker date="1543134860089" expanded="true" signature="22409:22522" ph="///NavajoWhite, the color that is represented by the RGB value ##FFFFDEAD. ... " />
-            <marker date="1543134860089" expanded="true" signature="22620:22724" ph="///Navy, the color that is represented by the RGB value ##000080. ... " />
-            <marker date="1543134860089" expanded="true" signature="22795:22904" ph="///OldLace, the color that is represented by the RGB value ##FFFDF5E6. ... " />
-            <marker date="1543134860089" expanded="true" signature="22982:23087" ph="///Olive, the color that is represented by the RGB value ##808000. ... " />
-            <marker date="1543134860089" expanded="true" signature="23161:23272" ph="///OliveDrab, the color that is represented by the RGB value ##FF6B8E23. ... " />
-            <marker date="1543134860089" expanded="true" signature="23351:23457" ph="///Orange, the color that is represented by the RGB value ##ffa500. ... " />
-            <marker date="1543134860089" expanded="true" signature="23548:23659" ph="///OrangeRed, the color that is represented by the RGB value ##FFFF4500. ... " />
-            <marker date="1543134860089" expanded="true" signature="23752:23860" ph="///Orchid, the color that is represented by the RGB value ##FFDA70D6. ... " />
-            <marker date="1543134860089" expanded="true" signature="23937:24052" ph="///PaleGoldenrod, the color that is represented by the RGB value ##FFEEE8AA. ... " />
-            <marker date="1543134860089" expanded="true" signature="24136:24247" ph="///PaleGreen, the color that is represented by the RGB value ##FF98FB98. ... " />
-            <marker date="1543134860089" expanded="true" signature="24327:24442" ph="///PaleTurquoise, the color that is represented by the RGB value ##FFAFEEEE. ... " />
-            <marker date="1543134860089" expanded="true" signature="24526:24641" ph="///PaleVioletRed, the color that is represented by the RGB value ##FFDB7093. ... " />
-            <marker date="1543134860089" expanded="true" signature="24725:24837" ph="///PapayaWhip, the color that is represented by the RGB value ##FFFFEFD5. ... " />
-            <marker date="1543134860089" expanded="true" signature="24934:25045" ph="///PeachPuff, the color that is represented by the RGB value ##FFFFDAB9. ... " />
-            <marker date="1543134860089" expanded="true" signature="25141:25247" ph="///Peru, the color that is represented by the RGB value ##FFCD853F. ... " />
-            <marker date="1543134860089" expanded="true" signature="25321:25425" ph="///Pink, the color that is represented by the RGB value ##ff66ff. ... " />
-            <marker date="1543134860089" expanded="true" signature="25516:25622" ph="///Plum, the color that is represented by the RGB value ##FFDDA0DD. ... " />
-            <marker date="1543134860089" expanded="true" signature="25697:25809" ph="///PowderBlue, the color that is represented by the RGB value ##FFB0E0E6. ... " />
-            <marker date="1543134860089" expanded="true" signature="25890:25996" ph="///Purple, the color that is represented by the RGB value ##800080. ... " />
-            <marker date="1543134860089" expanded="true" signature="26071:26174" ph="///Red, the color that is represented by the RGB value ##ff0000. ... " />
-            <marker date="1543134860089" expanded="true" signature="26260:26371" ph="///RosyBrown, the color that is represented by the RGB value ##FFBC8F8F. ... " />
-            <marker date="1543134860089" expanded="true" signature="26451:26562" ph="///RoyalBlue, the color that is represented by the RGB value ##FF4169E1. ... " />
-            <marker date="1543134860089" expanded="true" signature="26641:26754" ph="///SaddleBrown, the color that is represented by the RGB value ##FF8B4513. ... " />
-            <marker date="1543134860089" expanded="true" signature="26834:26942" ph="///Salmon, the color that is represented by the RGB value ##FFFA8072. ... " />
-            <marker date="1543134860089" expanded="true" signature="27019:27131" ph="///SandyBrown, the color that is represented by the RGB value ##FFF4A460. ... " />
-            <marker date="1543134860089" expanded="true" signature="27211:27321" ph="///SeaGreen, the color that is represented by the RGB value ##FF2E8B57. ... " />
-            <marker date="1543134860089" expanded="true" signature="27398:27508" ph="///SeaShell, the color that is represented by the RGB value ##FFFFF5EE. ... " />
-            <marker date="1543134860089" expanded="true" signature="27603:27711" ph="///Sienna, the color that is represented by the RGB value ##FFA0522D. ... " />
-            <marker date="1543134860089" expanded="true" signature="27786:27892" ph="///Silver, the color that is represented by the RGB value ##c0c0c0. ... " />
-            <marker date="1543134860089" expanded="true" signature="27969:28078" ph="///SkyBlue, the color that is represented by the RGB value ##FF87CEEB. ... " />
-            <marker date="1543134860089" expanded="true" signature="28156:28267" ph="///SlateBlue, the color that is represented by the RGB value ##FF6A5ACD. ... " />
-            <marker date="1543134860089" expanded="true" signature="28346:28457" ph="///SlateGray, the color that is represented by the RGB value ##FF708090. ... " />
-            <marker date="1543134860089" expanded="true" signature="28537:28643" ph="///Snow, the color that is represented by the RGB value ##FFFFFAFA. ... " />
-            <marker date="1543134860089" expanded="true" signature="28734:28847" ph="///SpringGreen, the color that is represented by the RGB value ##FF00FF7F. ... " />
-            <marker date="1543134860089" expanded="true" signature="28960:29071" ph="///SteelBlue, the color that is represented by the RGB value ##FF4682B4. ... " />
-            <marker date="1543134860089" expanded="true" signature="29150:29255" ph="///Tan, the color that is represented by the RGB value ##FFD2B48C. ... " />
-            <marker date="1543134860089" expanded="true" signature="29329:29433" ph="///Teal, the color that is represented by the RGB value ##008080. ... " />
-            <marker date="1543134860089" expanded="true" signature="29506:29615" ph="///Thistle, the color that is represented by the RGB value ##FFD8BFD8. ... " />
-            <marker date="1543134860089" expanded="true" signature="29693:29801" ph="///Tomato, the color that is represented by the RGB value ##FFFF6347. ... " />
-            <marker date="1543134860089" expanded="true" signature="29892:30104" ph="///The transparent color, represented by the RGB value ##ffffff00. ... " />
-            <marker date="1543134860089" expanded="true" signature="30238:30349" ph="///Turquoise, the color that is represented by the RGB value ##FF40E0D0. ... " />
-            <marker date="1543134860089" expanded="true" signature="30428:30536" ph="///Violet, the color that is represented by the RGB value ##FFEE82EE. ... " />
-            <marker date="1543134860089" expanded="true" signature="30613:30720" ph="///Wheat, the color that is represented by the RGB value ##FFF5DEB3. ... " />
-            <marker date="1543134860089" expanded="true" signature="30796:30901" ph="///White, the color that is represented by the RGB value ##ffffff. ... " />
-            <marker date="1543134860089" expanded="true" signature="31025:31137" ph="///WhiteSmoke, the color that is represented by the RGB value ##FFF5F5F5. ... " />
-            <marker date="1543134860089" expanded="true" signature="31218:31325" ph="///Yellow, the color that is represented by the RGB value ##ffff00.. ... " />
-            <marker date="1543134860089" expanded="true" signature="31432:31545" ph="///YellowGreen, the color that is represented by the RGB value ##FF9ACD32. ... " />
-            <marker date="1543134860089" expanded="true" signature="31903:32098" ph="///Returns the default color. ... " />
-            <marker date="1543134860089" expanded="true" signature="32130:32238" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="32146:32232" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="32244:32390" ph="///For internal use by the Xamarin.Forms platform. ... " />
-            <marker date="1543134860089" expanded="true" signature="32466:32553" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="32482:32547" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="32559:32753" ph="///For internal use by the Xamarin.Forms platform. ... " />
-            <marker date="1543134860089" expanded="true" signature="32849:32889" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="32895:33079" ph="///Gets the accent or tint color from the application. ... " />
-            <marker date="1543134860089" expanded="true" signature="33139:33326" ph="///Gets the alpha component of the color. ... " />
-            <marker date="1543134860089" expanded="true" signature="33346:33417" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="33362:33411" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="33423:33606" ph="///Gets the Red component of the color. ... " />
-            <marker date="1543134860089" expanded="true" signature="33626:33697" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="33642:33691" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="33703:33890" ph="///Gets the Green component of the color. ... " />
-            <marker date="1543134860089" expanded="true" signature="33910:33981" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="33926:33975" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="33987:34172" ph="///Gets the blue component of the color. ... " />
-            <marker date="1543134860089" expanded="true" signature="34192:34263" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="34208:34257" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="34269:34442" ph="///Gets the Hue of the color. ... " />
-            <marker date="1543134860089" expanded="true" signature="34464:34537" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="34480:34531" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="34543:34729" ph="///Gets the Saturation of the color ... " />
-            <marker date="1543134860089" expanded="true" signature="34758:34838" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="34774:34832" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="34844:35031" ph="///Gets the Luminosity fo the color. ... " />
-            <marker date="1543134860089" expanded="true" signature="35060:35140" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="35076:35134" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="35198:35262" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="35338:36297" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="35389:36291" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="36345:36395" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="36427:36489" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="36495:36922" ph="///Returns a new color with the alpha channel multiplied by alpha, clamped to the inclusive range [0-1]. ... " />
-            <marker date="1543134860089" expanded="true" signature="36967:37439" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="36999:37433" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="37445:37888" ph="///Returns a new Color with a modified luminosity channel. ... " />
-            <marker date="1543134860089" expanded="true" signature="37933:38202" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="38208:38528" ph="///Returns a color with modified Hue, but keeping the same Saturation and Luminosity. ... " />
-            <marker date="1543134860089" expanded="true" signature="38565:38811" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="38817:39108" ph="///Returns a new color with modified Saturation. ... " />
-            <marker date="1543134860089" expanded="true" signature="39159:39405" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="39411:39703" ph="///Returns a color with modified Luminosity. ... " />
-            <marker date="1543134860089" expanded="true" signature="39754:40000" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="40141:41480" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="40335:40383" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="40394:41474" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="40677:40758" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="40849:41388" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="41601:42496" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="41791:41833" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="41844:42490" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="41934:42409" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="42422:42482" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="42502:42868" ph="///Returns &lt;see langword=&quot;true&quot; /&gt; if &lt;paramref name=&quot;color1&quot; /&gt; represents the same color as &lt;paramref name=&quot;col ... " />
-            <marker date="1543134860089" expanded="true" signature="42931:42991" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="42997:43371" ph="///Returns &lt;see langword=&quot;true&quot; /&gt; if &lt;paramref name=&quot;color1&quot; /&gt; does not represent the same color as &lt;paramref n ... " />
-            <marker date="1543134860089" expanded="true" signature="43434:43495" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="43501:43677" ph="///Returns the Hashcode for this &lt;see cref=&quot;T:System.Object&quot; /&gt;. ... " />
-            <marker date="1543134860089" expanded="true" signature="43715:44107" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="44113:44552" ph="///Determine if the provided &lt;see cref=&quot;T:System.Object&quot; /&gt; is equivalent to the current Color. ... " />
-            <marker date="1543134860089" expanded="true" signature="44596:44716" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="44781:45576" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="45074:45353" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="45582:45726" ph="///Returns a string representation of the Color. ... " />
-            <marker date="1543134860089" expanded="true" signature="45764:46071" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="46110:46409" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="46449:46523" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="46529:48094" ph="///Returns a new RGB Color instance with the requested Red, Green, and Blue channels. The Alpha channel is set if ... " />
-            <marker date="1543134860089" expanded="true" signature="48138:51700" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="48273:51694" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="51706:52126" ph="///Returns a new Color with the requested RGBA value. ... " />
-            <marker date="1543134860089" expanded="true" signature="52170:52376" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="52382:52813" ph="///Returns a new RGBA color instance. ... " />
-            <marker date="1543134860089" expanded="true" signature="52874:53255" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="53261:53624" ph="///Returns a new rgb color instance. ... " />
-            <marker date="1543134860089" expanded="true" signature="53677:53748" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="53754:54390" ph="///Returns a new RGBA color instance. ... " />
-            <marker date="1543134860089" expanded="true" signature="54463:54511" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="54517:55063" ph="///Returns a new rgb color instance. ... " />
-            <marker date="1543134860089" expanded="true" signature="55125:55191" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="55197:55593" ph="///Returns a new HSL Color with an alpha channel ... " />
-            <marker date="1543134860089" expanded="true" signature="55672:55736" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="55742:56094" ph="///Converts the provided &lt;paramref name=&quot;color&quot; /&gt; to a &lt;see cref=&quot;T:Xamarin.Forms.Color&quot; /&gt;. ... " />
-            <marker date="1543134860089" expanded="true" signature="56164:56526" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="56532:56885" ph="///Converts the provided &lt;paramref name=&quot;color&quot; /&gt; to a &lt;see cref=&quot;T:System.Drawing.Color&quot; /&gt;. ... " />
-            <marker date="1543134860089" expanded="true" signature="56955:57111" ph="{...}" />
-            <marker date="1543134860089" expanded="true" signature="57134:57183" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB90EF3B-C536-442B-8BF4-49FAF5FE1D50/5e/ab243e79/SKPoint.cs" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB90EF3B-C536-442B-8BF4-49FAF5FE1D50/f4/8db9aa91/SKRect.cs" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2213E650-4125-4F04-B27A-E6E57D256A86/8d/f8ae3375/Color.cs" />
     <entry file="file://$PROJECT_DIR$/WheelSpinner.Android/WheelSpinner.Android.csproj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="684">
@@ -901,156 +679,116 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB90EF3B-C536-442B-8BF4-49FAF5FE1D50/3b/b95a456d/SKPaint.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="615" column="58" lean-forward="true" selection-start-line="615" selection-start-column="58" selection-end-line="615" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB90EF3B-C536-442B-8BF4-49FAF5FE1D50/3b/b95a456d/SKPaint.cs" />
     <entry file="file://$PROJECT_DIR$/WheelSpinner.macOS/AppDelegate.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="589">
           <caret line="34" column="1" lean-forward="true" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
-          <folding>
-            <marker date="1543179814316" expanded="false" signature="6:88" ph="..." />
-            <marker date="1543179814316" expanded="true" signature="118:966" ph="{...}" />
-            <marker date="1543179814316" expanded="true" signature="206:964" ph="{...}" />
-            <marker date="1543179814316" expanded="true" signature="268:650" ph="{...}" />
-            <marker date="1543179814316" expanded="true" signature="695:743" ph="{...}" />
-            <marker date="1543179814316" expanded="true" signature="821:958" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2213E650-4125-4F04-B27A-E6E57D256A86/32/6693f48a/AnimationExtensions.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="201" column="75" lean-forward="true" selection-start-line="201" selection-start-column="75" selection-end-line="201" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2213E650-4125-4F04-B27A-E6E57D256A86/25/3fdbb781/Animation.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="77" column="16" selection-start-line="77" selection-start-column="16" selection-end-line="77" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Xamarin.Mac.framework/Versions/5.0.0.0/src/Xamarin.Mac/external/corefx/src/System.Linq/src/System/Linq/First.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1068">
-          <caret line="91" column="37" selection-start-line="91" selection-start-column="37" selection-end-line="91" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2213E650-4125-4F04-B27A-E6E57D256A86/32/6693f48a/AnimationExtensions.cs" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2213E650-4125-4F04-B27A-E6E57D256A86/25/3fdbb781/Animation.cs" />
+    <entry file="file:///Library/Frameworks/Xamarin.Mac.framework/Versions/5.0.0.0/src/Xamarin.Mac/external/corefx/src/System.Linq/src/System/Linq/First.cs" />
     <entry file="file://$PROJECT_DIR$/WheelSpinner/MainPage.xaml.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-          <folding>
-            <marker date="1543094617300" expanded="false" signature="6:164" ph="..." />
-            <marker date="1543094617300" expanded="true" signature="188:354" ph="{...}" />
-            <marker date="1543094617300" expanded="true" signature="238:352" ph="{...}" />
-            <marker date="1543094617300" expanded="true" signature="270:337" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Xamarin.Mac.framework/Versions/5.0.0.0/src/Xamarin.Mac/external/corefx/src/Common/src/CoreLib/System/Collections/Generic/KeyValuePair.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1177">
-          <caret line="71" column="18" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2213E650-4125-4F04-B27A-E6E57D256A86/fa/1127f703/BindableObject.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1067">
-          <caret line="667" column="10" selection-start-line="667" selection-start-column="10" selection-end-line="667" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WheelSpinner/MainPage.xaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1045">
-          <caret line="55" column="133" selection-start-line="55" selection-start-column="133" selection-end-line="55" selection-end-column="133" />
-          <folding>
-            <marker date="1543184307242" expanded="true" signature="48:2073" ph="&lt;&lt;ContentPage.Resources&gt;&#10;        &lt;ResourceDictionary&gt;&#10;            &lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;&#10;        &lt;/ResourceDictionary&gt;&#10;    &lt;/ContentPage.Resources&gt; &lt;Grid&gt;&#10;        &lt;Grid.RowDefinitions&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;*&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;        &lt;/Grid.RowDefinitions&gt;&#10;&#10;        &lt;Slider x:Name=&quot;AngleSlider&quot;&#10;                Margin=&quot;10&quot;&#10;                HeightRequest=&quot;50&quot;&#10;                Minimum=&quot;-360&quot;&#10;                Maximum=&quot;360&quot; /&gt;&#10;&#10;        &lt;views:SpinnerWheel Grid.Row=&quot;1&quot;&#10;                            x:Name=&quot;SpinnerWheel&quot;&#10;                            BackgroundColor=&quot;LightGray&quot;&#10;                            WidthRequest=&quot;600&quot;&#10;                            HeightRequest=&quot;600&quot;&#10;                            RotationAngle=&quot;{Binding Source={x:Reference AngleSlider}, Path=Value}&quot; /&gt;&#10;&#10;        &lt;StackLayout Grid.Row=&quot;2&quot;&#10;                     Orientation=&quot;Horizontal&quot;&#10;                     HorizontalOptions=&quot;Center&quot;&gt;&#10;            &lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt;&#10;&#10;&#10;            &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;&#10;        &lt;/StackLayout&gt;&#10;&#10;        &lt;Label Grid.Row=&quot;3&quot;&#10;               HorizontalOptions=&quot;Center&quot;&#10;               Text=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=SelectedItem, Converter={StaticResource ObjToStrConverter}}&quot; /&gt;&#10;&#10;    &lt;/Grid&gt;.../&gt;" />
-            <marker date="1543184307242" expanded="true" signature="330:498" ph="&lt;&lt;ResourceDictionary&gt;&#10;            &lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;&#10;        &lt;/ResourceDictionary&gt;.../&gt;" />
-            <marker date="1543184307242" expanded="true" signature="362:469" ph="&lt;&lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;.../&gt;" />
-            <marker date="1543184307242" expanded="true" signature="504:2058" ph="&lt;&lt;Grid.RowDefinitions&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;*&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;        &lt;/Grid.RowDefinitions&gt; &lt;Slider x:Name=&quot;AngleSlider&quot;&#10;                Margin=&quot;10&quot;&#10;                HeightRequest=&quot;50&quot;&#10;                Minimum=&quot;-360&quot;&#10;                Maximum=&quot;360&quot; /&gt; &lt;views:SpinnerWheel Grid.Row=&quot;1&quot;&#10;                            x:Name=&quot;SpinnerWheel&quot;&#10;                            BackgroundColor=&quot;LightGray&quot;&#10;                            WidthRequest=&quot;600&quot;&#10;                            HeightRequest=&quot;600&quot;&#10;                            RotationAngle=&quot;{Binding Source={x:Reference AngleSlider}, Path=Value}&quot; /&gt; &lt;StackLayout Grid.Row=&quot;2&quot;&#10;                     Orientation=&quot;Horizontal&quot;&#10;                     HorizontalOptions=&quot;Center&quot;&gt;&#10;            &lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt;&#10;&#10;&#10;            &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;&#10;        &lt;/StackLayout&gt; &lt;Label Grid.Row=&quot;3&quot;&#10;               HorizontalOptions=&quot;Center&quot;&#10;               Text=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=SelectedItem, Converter={StaticResource ObjToStrConverter}}&quot; /&gt;.../&gt;" />
-            <marker date="1543184307242" expanded="true" signature="519:744" ph="&lt;&lt;RowDefinition Height=&quot;Auto&quot; /&gt; &lt;RowDefinition Height=&quot;*&quot; /&gt; &lt;RowDefinition Height=&quot;Auto&quot; /&gt; &lt;RowDefinition Height=&quot;Auto&quot; /&gt;.../&gt;" />
-            <marker date="1543184307242" expanded="true" signature="754:909" ph="&lt;.../&gt;" />
-            <marker date="1543184307242" expanded="true" signature="919:1254" ph="&lt;.../&gt;" />
-            <marker date="1543184307242" expanded="true" signature="1264:1840" ph="&lt;&lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt; &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;.../&gt;" />
-            <marker date="1543184307242" expanded="true" signature="1397:1598" ph="&lt;.../&gt;" />
-            <marker date="1543184307242" expanded="true" signature="1613:1817" ph="&lt;.../&gt;" />
-            <marker date="1543184307242" expanded="true" signature="1850:2045" ph="&lt;.../&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2213E650-4125-4F04-B27A-E6E57D256A86/c4/5d194492/BindableProperty.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="234" column="35" selection-start-line="234" selection-start-column="35" selection-end-line="234" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///Library/Frameworks/Xamarin.Mac.framework/Versions/5.0.0.0/src/Xamarin.Mac/external/corefx/src/Common/src/CoreLib/System/Collections/Generic/KeyValuePair.cs" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2213E650-4125-4F04-B27A-E6E57D256A86/fa/1127f703/BindableObject.cs" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2213E650-4125-4F04-B27A-E6E57D256A86/c4/5d194492/BindableProperty.cs" />
     <entry file="file://$PROJECT_DIR$/WheelSpinner/ObjToStr.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
+        <state relative-caret-position="160">
           <caret line="10" column="66" selection-start-line="10" selection-start-column="66" selection-end-line="10" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WheelSpinner/ViewModels/MainPageViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
           <folding>
-            <marker date="1543184898234" expanded="false" signature="6:62" ph="..." />
-            <marker date="1543184898234" expanded="true" signature="86:507" ph="{...}" />
-            <marker date="1543184898234" expanded="true" signature="132:505" ph="{...}" />
-            <marker date="1543184898234" expanded="true" signature="238:325" ph="{...}" />
-            <marker date="1543184898234" expanded="true" signature="430:499" ph="{...}" />
+            <marker date="1543274180692" expanded="true" signature="68:207" ph="{...}" />
+            <marker date="1543274180692" expanded="true" signature="105:205" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WheelSpinner/Views/SpinnerWheel.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="58" column="33" lean-forward="true" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
+        <state relative-caret-position="440">
+          <caret line="61" column="31" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
           <folding>
-            <marker date="1543185019197" expanded="true" signature="6:192" ph="..." />
-            <marker date="1543185019197" expanded="true" signature="222:13909" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="268:13907" ph="{...}" />
-            <marker date="1543185019197" expanded="false" signature="628:770" ph="{...}" />
-            <marker date="1543185019197" expanded="false" signature="991:1135" ph="{...}" />
-            <marker date="1543185019197" expanded="false" signature="1460:1600" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="1709:1802" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="2084:2214" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="2315:2408" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="2669:2798" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="2926:3098" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="3173:3345" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="3424:3847" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="3994:5282" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="4301:4744" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="4386:4542" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="4794:5238" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="4879:5035" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="5470:8876" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="5514:8719" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="5810:6147" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="6259:8162" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="7337:7444" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="7981:8088" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="8918:10527" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="9594:9726" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="9890:10515" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="10781:13901" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="11020:11115" ph="/* Move canvas origin to the center of the screen ... */" />
-            <marker date="1543185019197" expanded="true" signature="11189:11281" ph="/* Set the desired rotation angle ... */" />
-            <marker date="1543185019197" expanded="true" signature="11716:13891" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="12185:12439" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="12488:12742" ph="{...}" />
-            <marker date="1543185019197" expanded="true" signature="12763:12977" ph="{...}" />
+            <marker date="1543273628956" expanded="false" signature="6:161" ph="..." />
+            <marker date="1543273628956" expanded="true" signature="191:14185" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="237:14183" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="389:2822" ph="PROPERTIES" />
+            <marker date="1543273628956" expanded="true" signature="625:766" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="987:1130" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="1454:1593" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="1702:1795" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="2078:2207" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="2308:2401" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="2662:2791" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="2897:3069" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="3144:3316" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="3395:3818" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="4018:5307" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="4325:4768" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="4410:4566" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="4818:5262" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="4903:5059" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="5498:9102" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="5542:8933" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="5839:6180" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="6294:8210" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="7380:7487" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="8028:8135" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="9144:10757" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="9820:9952" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="10116:10745" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="11029:14177" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="11268:11375" ph="/* Move canvas origin to the center of the screen ... */" />
+            <marker date="1543273628956" expanded="true" signature="11449:11553" ph="/* Set the desired rotation angle ... */" />
+            <marker date="1543273628956" expanded="true" signature="11990:14167" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="12458:12712" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="12762:13016" ph="{...}" />
+            <marker date="1543273628956" expanded="true" signature="13037:13251" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WheelSpinner/MainPage.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="806">
+          <caret line="54" column="34" lean-forward="true" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
+          <folding>
+            <marker date="1543274354070" expanded="true" signature="48:2316" ph="&lt;&lt;ContentPage.Resources&gt;&#10;        &lt;ResourceDictionary&gt;&#10;            &lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;&#10;        &lt;/ResourceDictionary&gt;&#10;    &lt;/ContentPage.Resources&gt; &lt;ContentPage.BindingContext&gt;&#10;        &lt;viewModels:MainPageViewModel /&gt;&#10;    &lt;/ContentPage.BindingContext&gt; &lt;Grid&gt;&#10;        &lt;Grid.RowDefinitions&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;*&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;        &lt;/Grid.RowDefinitions&gt;&#10;&#10;        &lt;Slider x:Name=&quot;AngleSlider&quot;&#10;                Margin=&quot;10&quot;&#10;                HeightRequest=&quot;50&quot;&#10;                Minimum=&quot;-360&quot;&#10;                Maximum=&quot;360&quot; /&gt;&#10;&#10;        &lt;views:SpinnerWheel Grid.Row=&quot;1&quot;&#10;                            x:Name=&quot;SpinnerWheel&quot;&#10;                            BackgroundColor=&quot;LightGray&quot;&#10;                            WidthRequest=&quot;600&quot;&#10;                            HeightRequest=&quot;600&quot;&#10;                            RotationAngle=&quot;{Binding Source={x:Reference AngleSlider}, Path=Value}&quot;&#10;                            Items=&quot;{Binding Letters}&quot;/&gt;&#10;&#10;        &lt;StackLayout Grid.Row=&quot;2&quot;&#10;                     Orientation=&quot;Horizontal&quot;&#10;                     HorizontalOptions=&quot;Center&quot;&gt;&#10;            &lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt;&#10;&#10;            &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;&#10;        &lt;/StackLayout&gt;&#10;&#10;        &lt;Label Grid.Row=&quot;3&quot;&#10;               HorizontalOptions=&quot;Center&quot;&#10;               Text=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=SelectedItem, Converter={StaticResource ObjToStrConverter}}&quot; /&gt;&#10;    &lt;/Grid&gt;.../&gt;" />
+            <marker date="1543274354070" expanded="true" signature="413:581" ph="&lt;&lt;ResourceDictionary&gt;&#10;            &lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;&#10;        &lt;/ResourceDictionary&gt;.../&gt;" />
+            <marker date="1543274354070" expanded="true" signature="445:552" ph="&lt;&lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;.../&gt;" />
+            <marker date="1543274354070" expanded="true" signature="587:690" ph="&lt;&lt;viewModels:MainPageViewModel /&gt;.../&gt;" />
+            <marker date="1543274354070" expanded="true" signature="696:2301" ph="&lt;&lt;Grid.RowDefinitions&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;*&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;        &lt;/Grid.RowDefinitions&gt; &lt;Slider x:Name=&quot;AngleSlider&quot;&#10;                Margin=&quot;10&quot;&#10;                HeightRequest=&quot;50&quot;&#10;                Minimum=&quot;-360&quot;&#10;                Maximum=&quot;360&quot; /&gt; &lt;views:SpinnerWheel Grid.Row=&quot;1&quot;&#10;                            x:Name=&quot;SpinnerWheel&quot;&#10;                            BackgroundColor=&quot;LightGray&quot;&#10;                            WidthRequest=&quot;600&quot;&#10;                            HeightRequest=&quot;600&quot;&#10;                            RotationAngle=&quot;{Binding Source={x:Reference AngleSlider}, Path=Value}&quot;&#10;                            Items=&quot;{Binding Letters}&quot;/&gt; &lt;StackLayout Grid.Row=&quot;2&quot;&#10;                     Orientation=&quot;Horizontal&quot;&#10;                     HorizontalOptions=&quot;Center&quot;&gt;&#10;            &lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt;&#10;&#10;            &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;&#10;        &lt;/StackLayout&gt; &lt;Label Grid.Row=&quot;3&quot;&#10;               HorizontalOptions=&quot;Center&quot;&#10;               Text=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=SelectedItem, Converter={StaticResource ObjToStrConverter}}&quot; /&gt;.../&gt;" />
+            <marker date="1543274354070" expanded="true" signature="711:936" ph="&lt;&lt;RowDefinition Height=&quot;Auto&quot; /&gt; &lt;RowDefinition Height=&quot;*&quot; /&gt; &lt;RowDefinition Height=&quot;Auto&quot; /&gt; &lt;RowDefinition Height=&quot;Auto&quot; /&gt;.../&gt;" />
+            <marker date="1543274354070" expanded="true" signature="946:1101" ph="&lt;.../&gt;" />
+            <marker date="1543274354070" expanded="true" signature="1111:1499" ph="&lt;.../&gt;" />
+            <marker date="1543274354070" expanded="true" signature="1509:2084" ph="&lt;&lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt; &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;.../&gt;" />
+            <marker date="1543274354070" expanded="true" signature="1642:1843" ph="&lt;.../&gt;" />
+            <marker date="1543274354070" expanded="true" signature="1857:2061" ph="&lt;.../&gt;" />
+            <marker date="1543274354070" expanded="true" signature="2094:2289" ph="&lt;.../&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WheelSpinner.UWP/MainPage.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+          <folding>
+            <marker date="1543270609157" expanded="true" signature="0:535" ph="&lt;.../&gt;" />
           </folding>
         </state>
       </provider>

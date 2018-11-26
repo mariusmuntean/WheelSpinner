@@ -14,7 +14,7 @@ namespace WheelSpinner.Views
         private const double RadianToDegreesFactor = 180 / Math.PI;
 
         #region PROPERTIES
-        
+
         public static readonly BindableProperty GoLeftCommandProperty = BindableProperty.Create("GoLeftCommand",
             typeof(ICommand),
             typeof(SpinnerWheel));
@@ -82,9 +82,7 @@ namespace WheelSpinner.Views
             set => SetValue(SelectedItemProperty, value);
         }
 
-        #endregion
-
-        private readonly SKCanvasView _canvasView;
+        #endregion PROPERTIES
 
         private readonly SKPaint _thickStrokePaint = new SKPaint
         {
@@ -116,11 +114,13 @@ namespace WheelSpinner.Views
                 SKFontStyleSlant.Upright)
         };
 
+        private readonly SKCanvasView _canvasView;
+
         private SKPoint _centerPoint;
 
-        private SKPoint currentPoint;
+        private SKPoint _currentPoint;
 
-        private SKPoint prevPoint;
+        private SKPoint _prevPoint;
 
         public SpinnerWheel()
         {
@@ -140,7 +140,7 @@ namespace WheelSpinner.Views
                     },
                     RotationAngle, RotationAngle + 60.0d,
                     Easing.CubicInOut);
-                rotationAnimation.Commit(this, "LeftRotationAnimation", 1000 / 60, 400);
+                rotationAnimation.Commit(this, "LeftRotationAnimation", 1000 / 60, 300);
             });
 
             GoRightCommand = new Command(() =>
@@ -152,15 +152,15 @@ namespace WheelSpinner.Views
                     },
                     RotationAngle, RotationAngle - 60.0d,
                     Easing.CubicInOut);
-                rotationAnimation.Commit(this, "RightRotationAnimation", 1000 / 60, 400);
+                rotationAnimation.Commit(this, "RightRotationAnimation", 1000 / 60, 300);
             });
 
-            selectedIndex = 0;
+            _selectedIndex = 0;
         }
 
-        private long touchId = -1;
-        private int pressedIdx = -1;
-        private int selectedIndex = -1;
+        private long _touchId = -1;
+        private int _pressedIdx = -1;
+        private int _selectedIndex = -1;
 
         private void CanvasViewOnTouch(object sender, SKTouchEventArgs e)
         {
@@ -169,30 +169,30 @@ namespace WheelSpinner.Views
                 case SKTouchAction.Pressed:
 
                     var pressedContentBoundingRect =
-                        littleCircleBoundingRects.FirstOrDefault(rect => rect.Contains(e.Location - _centerPoint));
+                        _littleCircleBoundingRects.FirstOrDefault(rect => rect.Contains(e.Location - _centerPoint));
                     if (pressedContentBoundingRect != SKRect.Empty)
                     {
-                        touchId = e.Id;
-                        pressedIdx = littleCircleBoundingRects.IndexOf(pressedContentBoundingRect);
+                        _touchId = e.Id;
+                        _pressedIdx = _littleCircleBoundingRects.IndexOf(pressedContentBoundingRect);
 
                         // Save the touchdown location and undo center-point translation
-                        prevPoint = e.Location - _centerPoint;
+                        _prevPoint = e.Location - _centerPoint;
                     }
 
                     break;
 
                 case SKTouchAction.Moved:
 
-                    if (e.Id == touchId)
+                    if (e.Id == _touchId)
                     {
                         // Save the move location and undo center-point translation
-                        currentPoint = e.Location - _centerPoint;
+                        _currentPoint = e.Location - _centerPoint;
 
                         // Compute the vector angle
-                        var dotProduct = currentPoint.X * prevPoint.X
-                                         + currentPoint.Y * prevPoint.Y;
-                        var vectorMagnitude = Math.Sqrt(Math.Pow(currentPoint.X, 2) + Math.Pow(currentPoint.Y, 2))
-                                              * Math.Sqrt(Math.Pow(prevPoint.X, 2) + Math.Pow(prevPoint.Y, 2));
+                        var dotProduct = _currentPoint.X * _prevPoint.X
+                                         + _currentPoint.Y * _prevPoint.Y;
+                        var vectorMagnitude = Math.Sqrt(Math.Pow(_currentPoint.X, 2) + Math.Pow(_currentPoint.Y, 2))
+                                              * Math.Sqrt(Math.Pow(_prevPoint.X, 2) + Math.Pow(_prevPoint.Y, 2));
                         // sanitize Acos arg
                         var ratio = dotProduct / vectorMagnitude;
                         ratio = Math.Min(ratio, 1.0d);
@@ -207,7 +207,7 @@ namespace WheelSpinner.Views
                         }
 
                         var angleDegrees = angleRadians * RadianToDegreesFactor;
-                        var clockwise = (prevPoint.X * currentPoint.Y - prevPoint.Y * currentPoint.X) > 0;
+                        var clockwise = (_prevPoint.X * _currentPoint.Y - _prevPoint.Y * _currentPoint.X) > 0;
 
                         RotationAngle += clockwise ? angleDegrees : -angleDegrees;
                         RotationAngle = RotationAngle > 360.0d ? RotationAngle - 360d : RotationAngle;
@@ -217,25 +217,25 @@ namespace WheelSpinner.Views
                             Console.WriteLine("huh=");
                         }
 
-                        prevPoint = currentPoint;
+                        _prevPoint = _currentPoint;
                     }
 
                     break;
 
                 case SKTouchAction.Released:
-                    currentPoint = SKPoint.Empty;
-                    prevPoint = SKPoint.Empty;
+                    _currentPoint = SKPoint.Empty;
+                    _prevPoint = SKPoint.Empty;
 
-                    touchId = -1;
-                    pressedIdx = -1;
+                    _touchId = -1;
+                    _pressedIdx = -1;
 
                     SnapToClosestSlot();
 
                     break;
 
                 case SKTouchAction.Cancelled:
-                    touchId = -1;
-                    pressedIdx = -1;
+                    _touchId = -1;
+                    _pressedIdx = -1;
                     break;
 
                 default:
@@ -275,23 +275,23 @@ namespace WheelSpinner.Views
                 }, RotationAngle, destinationAngle,
                 Easing.CubicInOut);
 
-            animateToAngle.Commit(this, "SnapAnimation", 1000 / 60, 400, finished: (d, b) =>
+            animateToAngle.Commit(this, "SnapAnimation", 1000 / 60, 300, finished: (d, b) =>
             {
-                var closestPairTopDelta = hitAreaRectToItemMap
+                var closestPairTopDelta = _hitAreaRectToItemMap
                     .Where(pair => pair.Key.Left < 0.0f)
                     .Min(pair => Math.Abs(pair.Key.Top));
-                var closestPair = hitAreaRectToItemMap
+                var closestPair = _hitAreaRectToItemMap
                     .FirstOrDefault(pair => pair.Key.Left < 0.0f
                                             && Math.Abs(Math.Abs(pair.Key.Top) - closestPairTopDelta) < 0.1f);
 
-                selectedIndex = littleCircleBoundingRects.IndexOf(closestPair.Key) % 3;
+                _selectedIndex = _littleCircleBoundingRects.IndexOf(closestPair.Key) % 3;
                 _canvasView.InvalidateSurface();
                 SelectedItem = closestPair.Value;
             });
         }
 
-        private List<SKRect> littleCircleBoundingRects = new List<SKRect>();
-        private Dictionary<SKRect, object> hitAreaRectToItemMap = new Dictionary<SKRect, object>();
+        private List<SKRect> _littleCircleBoundingRects = new List<SKRect>();
+        private Dictionary<SKRect, object> _hitAreaRectToItemMap = new Dictionary<SKRect, object>();
 
         private void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
         {
@@ -318,8 +318,8 @@ namespace WheelSpinner.Views
             // Draw little circles
             var angleIncrement = 0.0f;
             var littleCircleRadius = radius * 0.2f;
-            littleCircleBoundingRects.Clear();
-            hitAreaRectToItemMap.Clear();
+            _littleCircleBoundingRects.Clear();
+            _hitAreaRectToItemMap.Clear();
             for (var i = 0; i < 6; i++)
             {
                 canvas.Save();
@@ -331,13 +331,13 @@ namespace WheelSpinner.Views
                 canvas.Translate(littleCircleCenter);
 
                 // Highlight pressed content
-                if (i == pressedIdx)
+                if (i == _pressedIdx)
                 {
                     canvas.Scale(1.1f);
                     _thickStrokePaint.Color = _thickStrokePaint.Color.WithAlpha(255);
                     _thinStrokeTextPaint.Color = _thinStrokeTextPaint.Color.WithAlpha(255);
                 }
-                else if (i % 3 == selectedIndex)
+                else if (i % 3 == _selectedIndex)
                 {
                     canvas.Scale(1.2f);
                     _thickStrokePaint.Color = _thickStrokePaint.Color.WithAlpha(255);
@@ -356,8 +356,8 @@ namespace WheelSpinner.Views
                     littleCircleCenter.X + (littleCircleRadius),
                     littleCircleCenter.Y + (littleCircleRadius)
                 );
-                littleCircleBoundingRects.Add(hitAreaRect);
-                hitAreaRectToItemMap.Add(hitAreaRect, Items[i % 3]);
+                _littleCircleBoundingRects.Add(hitAreaRect);
+                _hitAreaRectToItemMap.Add(hitAreaRect, Items[i % 3]);
 
                 var text = $"{((i % 3) + 1).ToString()}";
                 var textRect = new SKRect();

@@ -7,6 +7,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:WheelSpinner"
     xmlns:views="clr-namespace:WheelSpinner.Views;assembly=WheelSpinner"
+    xmlns:viewModels="clr-namespace:WheelSpinner.ViewModels;assembly=WheelSpinner"
     x:Class="WheelSpinner.MainPage">
 
     <ContentPage.Resources>
@@ -14,6 +15,10 @@
             <local:ObjToStr x:Key="ObjToStrConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <viewModels:MainPageViewModel />
+    </ContentPage.BindingContext>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -34,7 +39,8 @@
                             BackgroundColor="LightGray"
                             WidthRequest="600"
                             HeightRequest="600"
-                            RotationAngle="{Binding Source={x:Reference AngleSlider}, Path=Value}" />
+                            RotationAngle="{Binding Source={x:Reference AngleSlider}, Path=Value}"
+                            Items="{Binding Letters}"/>
 
         <StackLayout Grid.Row="2"
                      Orientation="Horizontal"
