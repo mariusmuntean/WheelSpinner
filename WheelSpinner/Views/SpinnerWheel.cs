@@ -238,7 +238,11 @@ namespace WheelSpinner.Views
                     pressedIdx = -1;
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                {
+                    Console.WriteLine($"SKTouchAction: {e.ActionType}");
+                    //throw new ArgumentOutOfRangeException();
+                    break;
+                }
             }
 
             e.Handled = true;
