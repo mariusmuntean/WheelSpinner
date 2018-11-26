@@ -1,6 +1,6 @@
-﻿using System;
-using AppKit;
+﻿using AppKit;
 using Foundation;
+using System;
 
 namespace WheelSpinner.macOS
 {

@@ -1,11 +1,10 @@
+using SkiaSharp;
+using SkiaSharp.Views.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
-using SkiaSharp;
-using SkiaSharp.Views.Forms;
 using Xamarin.Forms;
-using Xamarin.Forms.Internals;
 
 namespace WheelSpinner.Views
 {
@@ -20,7 +19,7 @@ namespace WheelSpinner.Views
 
         public ICommand GoLeftCommand
         {
-            get => (ICommand) GetValue(GoLeftCommandProperty);
+            get => (ICommand)GetValue(GoLeftCommandProperty);
             set => SetValue(GoLeftCommandProperty, value);
         }
 
@@ -30,10 +29,9 @@ namespace WheelSpinner.Views
 
         public ICommand GoRightCommand
         {
-            get => (ICommand) GetValue(GoRightCommandProperty);
+            get => (ICommand)GetValue(GoRightCommandProperty);
             set => SetValue(GoRightCommandProperty, value);
         }
-
 
         public static readonly BindableProperty RotationAngleProperty = BindableProperty.Create("RotationAngle",
             typeof(double),
@@ -45,7 +43,7 @@ namespace WheelSpinner.Views
 
         public double RotationAngle
         {
-            get => (double) GetValue(RotationAngleProperty);
+            get => (double)GetValue(RotationAngleProperty);
             set => SetValue(RotationAngleProperty, value);
         }
 
@@ -57,12 +55,11 @@ namespace WheelSpinner.Views
         public static readonly BindableProperty ItemsProperty = BindableProperty.Create("Items",
             typeof(List<object>),
             typeof(SpinnerWheel),
-            new List<object>() {"a", "b", "c"}, propertyChanged: ItemsChanged);
-
+            new List<object>() { "a", "b", "c" }, propertyChanged: ItemsChanged);
 
         public List<object> Items
         {
-            get => (List<object>) GetValue(ItemsProperty);
+            get => (List<object>)GetValue(ItemsProperty);
             set => SetValue(ItemsProperty, value);
         }
 
@@ -82,7 +79,6 @@ namespace WheelSpinner.Views
             get => GetValue(SelectedItemProperty);
             set => SetValue(SelectedItemProperty, value);
         }
-
 
         private readonly SKCanvasView _canvasView;
 
@@ -121,7 +117,6 @@ namespace WheelSpinner.Views
         private SKPoint currentPoint;
 
         private SKPoint prevPoint;
-
 
         public SpinnerWheel()
         {
@@ -181,6 +176,7 @@ namespace WheelSpinner.Views
                     }
 
                     break;
+
                 case SKTouchAction.Moved:
 
                     if (e.Id == touchId)
@@ -217,12 +213,11 @@ namespace WheelSpinner.Views
                             Console.WriteLine("huh=");
                         }
 
-
                         prevPoint = currentPoint;
                     }
 
-
                     break;
+
                 case SKTouchAction.Released:
                     currentPoint = SKPoint.Empty;
                     prevPoint = SKPoint.Empty;
@@ -233,21 +228,23 @@ namespace WheelSpinner.Views
                     SnapToClosestSlot();
 
                     break;
+
                 case SKTouchAction.Cancelled:
                     touchId = -1;
                     pressedIdx = -1;
                     break;
+
                 default:
-                {
-                    Console.WriteLine($"SKTouchAction: {e.ActionType}");
-                    //throw new ArgumentOutOfRangeException();
-                    break;
-                }
+                    {
+                        Console.WriteLine($"SKTouchAction: {e.ActionType}");
+                        //throw new ArgumentOutOfRangeException();
+                        break;
+                    }
             }
 
             e.Handled = true;
 
-//            Console.WriteLine($"Rotation angle: {RotationAngle}°");
+            //            Console.WriteLine($"Rotation angle: {RotationAngle}°");
             _canvasView.InvalidateSurface();
         }
 
@@ -289,8 +286,8 @@ namespace WheelSpinner.Views
             });
         }
 
-        List<SKRect> littleCircleBoundingRects = new List<SKRect>();
-        Dictionary<SKRect, object> hitAreaRectToItemMap = new Dictionary<SKRect, object>();
+        private List<SKRect> littleCircleBoundingRects = new List<SKRect>();
+        private Dictionary<SKRect, object> hitAreaRectToItemMap = new Dictionary<SKRect, object>();
 
         private void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
         {
@@ -303,11 +300,11 @@ namespace WheelSpinner.Views
             _centerPoint = new SKPoint(info.Width, info.Height / 2f);
 
             // Move canvas origin to the center of the screen
-//            canvas.Translate(_centerPoint);
+            //            canvas.Translate(_centerPoint);
             canvas.Translate(info.Width, info.Height / 2f);
 
             // Set the desired rotation angle
-//            canvas.RotateDegrees((float) RotationAngle);
+            //            canvas.RotateDegrees((float) RotationAngle);
 
             var radius = Math.Min(info.Width, info.Height / 2f) * 0.8f;
 
@@ -324,8 +321,8 @@ namespace WheelSpinner.Views
                 canvas.Save();
 
                 var littleCircleCenter = new SKPoint(
-                    (float) (radius * Math.Cos((RotationAngle + angleIncrement) * DegreesToRadianFactor)),
-                    (float) (radius * Math.Sin((RotationAngle + angleIncrement) * DegreesToRadianFactor))
+                    (float)(radius * Math.Cos((RotationAngle + angleIncrement) * DegreesToRadianFactor)),
+                    (float)(radius * Math.Sin((RotationAngle + angleIncrement) * DegreesToRadianFactor))
                 );
                 canvas.Translate(littleCircleCenter);
 

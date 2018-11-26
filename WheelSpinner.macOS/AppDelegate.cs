@@ -8,7 +8,7 @@ namespace WheelSpinner.macOS
     [Register("AppDelegate")]
     public class AppDelegate : FormsApplicationDelegate
     {
-        NSWindow _window;
+        private NSWindow _window;
 
         public AppDelegate()
         {

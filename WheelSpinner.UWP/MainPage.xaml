@@ -10,6 +10,4 @@
 
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-
 </forms:WindowsPage>

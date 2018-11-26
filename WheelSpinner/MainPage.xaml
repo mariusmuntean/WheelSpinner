@@ -44,7 +44,6 @@
                     Text=" LEFT "
                     Command="{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}" />
 
-
             <Button x:Name="GoRight"
                     HorizontalOptions="Center"
                     Text=" RIGHT "
@@ -54,6 +53,5 @@
         <Label Grid.Row="3"
                HorizontalOptions="Center"
                Text="{Binding Source={x:Reference SpinnerWheel}, Path=SelectedItem, Converter={StaticResource ObjToStrConverter}}" />
-
     </Grid>
 </ContentPage>
