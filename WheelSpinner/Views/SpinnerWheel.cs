@@ -303,69 +303,73 @@ namespace WheelSpinner.Views
 
             _centerPoint = new SKPoint(info.Width, info.Height / 2f);
 
-            // Move canvas origin to the center of the screen
-            //            canvas.Translate(_centerPoint);
+            // Move canvas origin to middle of the screen's right edge
             canvas.Translate(info.Width, info.Height / 2f);
 
-            // Set the desired rotation angle
-            //            canvas.RotateDegrees((float) RotationAngle);
-
-            var radius = Math.Min(info.Width, info.Height / 2f) * 0.8f;
-
             // Draw large circle
+            var radius = Math.Min(info.Width, info.Height / 2f) * 0.8f;
             canvas.DrawCircle(new SKPoint(), radius, _thinStrokePaint);
 
             // Draw little circles
-            var angleIncrement = 0.0f;
+            var rotationAngleOffset = 240.0f;
+            var rotationAngleOffsetIncrement = 60;
             var littleCircleRadius = radius * 0.2f;
+            
             _littleCircleBoundingRects.Clear();
             _hitAreaRectToItemMap.Clear();
-            for (var i = 0; i < 6; i++)
+            
+            for (var currentItemIndex = 0; currentItemIndex < 6; currentItemIndex++)
             {
                 canvas.Save();
 
-                var littleCircleCenter = new SKPoint(
-                    (float)(radius * Math.Cos((RotationAngle + angleIncrement) * DegreesToRadianFactor)),
-                    (float)(radius * Math.Sin((RotationAngle + angleIncrement) * DegreesToRadianFactor))
+                // Compute the current item center
+                var currentItemCenter = new SKPoint(
+                    (float)(radius * Math.Cos((RotationAngle + rotationAngleOffset) * DegreesToRadianFactor)),
+                    (float)(radius * Math.Sin((RotationAngle + rotationAngleOffset) * DegreesToRadianFactor))
                 );
-                canvas.Translate(littleCircleCenter);
+                canvas.Translate(currentItemCenter);
 
-                // Highlight pressed content
-                if (i == _pressedIdx)
+                // Draw the current item
+                if (currentItemIndex == _pressedIdx) // Highlight if pressed
                 {
                     canvas.Scale(1.1f);
                     _thickStrokePaint.Color = _thickStrokePaint.Color.WithAlpha(255);
                     _thinStrokeTextPaint.Color = _thinStrokeTextPaint.Color.WithAlpha(255);
                 }
-                else if (i % 3 == _selectedIndex)
+                else if (currentItemIndex % 3 == _selectedIndex) // Highlight if item is currently selected
                 {
                     canvas.Scale(1.2f);
                     _thickStrokePaint.Color = _thickStrokePaint.Color.WithAlpha(255);
                     _thinStrokeTextPaint.Color = _thinStrokeTextPaint.Color.WithAlpha(255);
                 }
-                else
+                else // draw normally
                 {
                     _thickStrokePaint.Color = _thickStrokePaint.Color.WithAlpha(128);
                     _thinStrokeTextPaint.Color = _thinStrokeTextPaint.Color.WithAlpha(128);
                 }
 
                 canvas.DrawCircle(0, 0, littleCircleRadius, _thickStrokePaint);
-
-                var hitAreaRect = new SKRect(littleCircleCenter.X - (littleCircleRadius),
-                    littleCircleCenter.Y - (littleCircleRadius),
-                    littleCircleCenter.X + (littleCircleRadius),
-                    littleCircleCenter.Y + (littleCircleRadius)
+                
+                // Compute hit area of current item
+                var hitAreaRect = new SKRect(currentItemCenter.X - (littleCircleRadius),
+                    currentItemCenter.Y - (littleCircleRadius),
+                    currentItemCenter.X + (littleCircleRadius),
+                    currentItemCenter.Y + (littleCircleRadius)
                 );
                 _littleCircleBoundingRects.Add(hitAreaRect);
-                _hitAreaRectToItemMap.Add(hitAreaRect, Items[i % 3]);
+                _hitAreaRectToItemMap.Add(hitAreaRect, Items[currentItemIndex % 3]);
 
-                var text = $"{((i % 3) + 1).ToString()}";
+                // Draw something to distinguish the items
+                var text = $"{((currentItemIndex % 3) + 1).ToString()}";
                 var textRect = new SKRect();
                 _thinStrokePaint.MeasureText(text, ref textRect);
                 var textLocation = new SKPoint(0, textRect.Height);
                 canvas.DrawText(text, textLocation, _thinStrokeTextPaint);
 
-                angleIncrement += 60;
+                // Progress to next item angle
+                rotationAngleOffset -= rotationAngleOffsetIncrement;
+                
+                // Restore canvas transformations
                 canvas.Restore();
             }
         }

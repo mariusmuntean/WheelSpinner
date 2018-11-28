@@ -8,10 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eeecfb84-ad9c-4f61-b723-1ac6f9e3ae4c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/WheelSpinner/ViewModels/MainPageViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WheelSpinner/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WheelSpinner/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WheelSpinner/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WheelSpinner/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WheelSpinner/MainPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/WheelSpinner/MainPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WheelSpinner.Android/Resources/Resource.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WheelSpinner.Android/Resources/Resource.designer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WheelSpinner/Views/SpinnerWheel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WheelSpinner/Views/SpinnerWheel.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,26 +26,27 @@
           <entry key="project.closed" value="2" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="5055" />
+          <entry key="cs" value="5514" />
           <entry key="txt" value="842" />
           <entry key="xaml" value="531" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="5055" />
+          <entry key="C#" value="5514" />
           <entry key="PLAIN_TEXT" value="842" />
           <entry key="XAML" value="531" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cs" value="33" />
+          <entry key="cs" value="34" />
           <entry key="csproj" value="2" />
           <entry key="plist" value="2" />
           <entry key="sln" value="1" />
@@ -56,7 +56,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="C#" value="33" />
+          <entry key="C#" value="34" />
           <entry key="Csproj" value="2" />
           <entry key="Property list" value="2" />
           <entry key="Solution File" value="1" />
@@ -103,33 +103,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WheelSpinner/MainPage.xaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="806">
-              <caret line="54" column="34" lean-forward="true" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
+            <state relative-caret-position="252">
+              <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
               <folding>
-                <marker date="1543274354070" expanded="true" signature="48:2316" ph="&lt;&lt;ContentPage.Resources&gt;&#10;        &lt;ResourceDictionary&gt;&#10;            &lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;&#10;        &lt;/ResourceDictionary&gt;&#10;    &lt;/ContentPage.Resources&gt; &lt;ContentPage.BindingContext&gt;&#10;        &lt;viewModels:MainPageViewModel /&gt;&#10;    &lt;/ContentPage.BindingContext&gt; &lt;Grid&gt;&#10;        &lt;Grid.RowDefinitions&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;*&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;        &lt;/Grid.RowDefinitions&gt;&#10;&#10;        &lt;Slider x:Name=&quot;AngleSlider&quot;&#10;                Margin=&quot;10&quot;&#10;                HeightRequest=&quot;50&quot;&#10;                Minimum=&quot;-360&quot;&#10;                Maximum=&quot;360&quot; /&gt;&#10;&#10;        &lt;views:SpinnerWheel Grid.Row=&quot;1&quot;&#10;                            x:Name=&quot;SpinnerWheel&quot;&#10;                            BackgroundColor=&quot;LightGray&quot;&#10;                            WidthRequest=&quot;600&quot;&#10;                            HeightRequest=&quot;600&quot;&#10;                            RotationAngle=&quot;{Binding Source={x:Reference AngleSlider}, Path=Value}&quot;&#10;                            Items=&quot;{Binding Letters}&quot;/&gt;&#10;&#10;        &lt;StackLayout Grid.Row=&quot;2&quot;&#10;                     Orientation=&quot;Horizontal&quot;&#10;                     HorizontalOptions=&quot;Center&quot;&gt;&#10;            &lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt;&#10;&#10;            &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;&#10;        &lt;/StackLayout&gt;&#10;&#10;        &lt;Label Grid.Row=&quot;3&quot;&#10;               HorizontalOptions=&quot;Center&quot;&#10;               Text=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=SelectedItem, Converter={StaticResource ObjToStrConverter}}&quot; /&gt;&#10;    &lt;/Grid&gt;.../&gt;" />
-                <marker date="1543274354070" expanded="true" signature="413:581" ph="&lt;&lt;ResourceDictionary&gt;&#10;            &lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;&#10;        &lt;/ResourceDictionary&gt;.../&gt;" />
-                <marker date="1543274354070" expanded="true" signature="445:552" ph="&lt;&lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;.../&gt;" />
-                <marker date="1543274354070" expanded="true" signature="587:690" ph="&lt;&lt;viewModels:MainPageViewModel /&gt;.../&gt;" />
-                <marker date="1543274354070" expanded="true" signature="696:2301" ph="&lt;&lt;Grid.RowDefinitions&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;*&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;        &lt;/Grid.RowDefinitions&gt; &lt;Slider x:Name=&quot;AngleSlider&quot;&#10;                Margin=&quot;10&quot;&#10;                HeightRequest=&quot;50&quot;&#10;                Minimum=&quot;-360&quot;&#10;                Maximum=&quot;360&quot; /&gt; &lt;views:SpinnerWheel Grid.Row=&quot;1&quot;&#10;                            x:Name=&quot;SpinnerWheel&quot;&#10;                            BackgroundColor=&quot;LightGray&quot;&#10;                            WidthRequest=&quot;600&quot;&#10;                            HeightRequest=&quot;600&quot;&#10;                            RotationAngle=&quot;{Binding Source={x:Reference AngleSlider}, Path=Value}&quot;&#10;                            Items=&quot;{Binding Letters}&quot;/&gt; &lt;StackLayout Grid.Row=&quot;2&quot;&#10;                     Orientation=&quot;Horizontal&quot;&#10;                     HorizontalOptions=&quot;Center&quot;&gt;&#10;            &lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt;&#10;&#10;            &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;&#10;        &lt;/StackLayout&gt; &lt;Label Grid.Row=&quot;3&quot;&#10;               HorizontalOptions=&quot;Center&quot;&#10;               Text=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=SelectedItem, Converter={StaticResource ObjToStrConverter}}&quot; /&gt;.../&gt;" />
-                <marker date="1543274354070" expanded="true" signature="711:936" ph="&lt;&lt;RowDefinition Height=&quot;Auto&quot; /&gt; &lt;RowDefinition Height=&quot;*&quot; /&gt; &lt;RowDefinition Height=&quot;Auto&quot; /&gt; &lt;RowDefinition Height=&quot;Auto&quot; /&gt;.../&gt;" />
-                <marker date="1543274354070" expanded="true" signature="946:1101" ph="&lt;.../&gt;" />
-                <marker date="1543274354070" expanded="true" signature="1111:1499" ph="&lt;.../&gt;" />
-                <marker date="1543274354070" expanded="true" signature="1509:2084" ph="&lt;&lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt; &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;.../&gt;" />
-                <marker date="1543274354070" expanded="true" signature="1642:1843" ph="&lt;.../&gt;" />
-                <marker date="1543274354070" expanded="true" signature="1857:2061" ph="&lt;.../&gt;" />
-                <marker date="1543274354070" expanded="true" signature="2094:2289" ph="&lt;.../&gt;" />
+                <marker date="1543274354000" expanded="true" signature="48:2316" ph="&lt;&lt;ContentPage.Resources&gt;&#10;        &lt;ResourceDictionary&gt;&#10;            &lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;&#10;        &lt;/ResourceDictionary&gt;&#10;    &lt;/ContentPage.Resources&gt; &lt;ContentPage.BindingContext&gt;&#10;        &lt;viewModels:MainPageViewModel /&gt;&#10;    &lt;/ContentPage.BindingContext&gt; &lt;Grid&gt;&#10;        &lt;Grid.RowDefinitions&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;*&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;        &lt;/Grid.RowDefinitions&gt;&#10;&#10;        &lt;Slider x:Name=&quot;AngleSlider&quot;&#10;                Margin=&quot;10&quot;&#10;                HeightRequest=&quot;50&quot;&#10;                Minimum=&quot;-360&quot;&#10;                Maximum=&quot;360&quot; /&gt;&#10;&#10;        &lt;views:SpinnerWheel Grid.Row=&quot;1&quot;&#10;                            x:Name=&quot;SpinnerWheel&quot;&#10;                            BackgroundColor=&quot;LightGray&quot;&#10;                            WidthRequest=&quot;600&quot;&#10;                            HeightRequest=&quot;600&quot;&#10;                            RotationAngle=&quot;{Binding Source={x:Reference AngleSlider}, Path=Value}&quot;&#10;                            Items=&quot;{Binding Letters}&quot;/&gt;&#10;&#10;        &lt;StackLayout Grid.Row=&quot;2&quot;&#10;                     Orientation=&quot;Horizontal&quot;&#10;                     HorizontalOptions=&quot;Center&quot;&gt;&#10;            &lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt;&#10;&#10;            &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;&#10;        &lt;/StackLayout&gt;&#10;&#10;        &lt;Label Grid.Row=&quot;3&quot;&#10;               HorizontalOptions=&quot;Center&quot;&#10;               Text=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=SelectedItem, Converter={StaticResource ObjToStrConverter}}&quot; /&gt;&#10;    &lt;/Grid&gt;.../&gt;" />
+                <marker date="1543274354000" expanded="true" signature="413:581" ph="&lt;&lt;ResourceDictionary&gt;&#10;            &lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;&#10;        &lt;/ResourceDictionary&gt;.../&gt;" />
+                <marker date="1543274354000" expanded="true" signature="445:552" ph="&lt;&lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;.../&gt;" />
+                <marker date="1543274354000" expanded="true" signature="587:690" ph="&lt;&lt;viewModels:MainPageViewModel /&gt;.../&gt;" />
+                <marker date="1543274354000" expanded="true" signature="696:2301" ph="&lt;&lt;Grid.RowDefinitions&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;*&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;        &lt;/Grid.RowDefinitions&gt; &lt;Slider x:Name=&quot;AngleSlider&quot;&#10;                Margin=&quot;10&quot;&#10;                HeightRequest=&quot;50&quot;&#10;                Minimum=&quot;-360&quot;&#10;                Maximum=&quot;360&quot; /&gt; &lt;views:SpinnerWheel Grid.Row=&quot;1&quot;&#10;                            x:Name=&quot;SpinnerWheel&quot;&#10;                            BackgroundColor=&quot;LightGray&quot;&#10;                            WidthRequest=&quot;600&quot;&#10;                            HeightRequest=&quot;600&quot;&#10;                            RotationAngle=&quot;{Binding Source={x:Reference AngleSlider}, Path=Value}&quot;&#10;                            Items=&quot;{Binding Letters}&quot;/&gt; &lt;StackLayout Grid.Row=&quot;2&quot;&#10;                     Orientation=&quot;Horizontal&quot;&#10;                     HorizontalOptions=&quot;Center&quot;&gt;&#10;            &lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt;&#10;&#10;            &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;&#10;        &lt;/StackLayout&gt; &lt;Label Grid.Row=&quot;3&quot;&#10;               HorizontalOptions=&quot;Center&quot;&#10;               Text=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=SelectedItem, Converter={StaticResource ObjToStrConverter}}&quot; /&gt;.../&gt;" />
+                <marker date="1543274354000" expanded="true" signature="711:936" ph="&lt;&lt;RowDefinition Height=&quot;Auto&quot; /&gt; &lt;RowDefinition Height=&quot;*&quot; /&gt; &lt;RowDefinition Height=&quot;Auto&quot; /&gt; &lt;RowDefinition Height=&quot;Auto&quot; /&gt;.../&gt;" />
+                <marker date="1543274354000" expanded="true" signature="946:1101" ph="&lt;.../&gt;" />
+                <marker date="1543274354000" expanded="true" signature="1111:1499" ph="&lt;.../&gt;" />
+                <marker date="1543274354000" expanded="true" signature="1509:2084" ph="&lt;&lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt; &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;.../&gt;" />
+                <marker date="1543274354000" expanded="true" signature="1642:1843" ph="&lt;.../&gt;" />
+                <marker date="1543274354000" expanded="true" signature="1857:2061" ph="&lt;.../&gt;" />
+                <marker date="1543274354000" expanded="true" signature="2094:2289" ph="&lt;.../&gt;" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WheelSpinner.UWP/MainPage.xaml">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WheelSpinner/MainPage.xaml.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+            <state relative-caret-position="220">
+              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
               <folding>
-                <marker date="1543270609157" expanded="true" signature="0:535" ph="&lt;.../&gt;" />
+                <marker date="1543270175000" expanded="true" signature="44:189" ph="{...}" />
+                <marker date="1543270175000" expanded="true" signature="94:187" ph="{...}" />
+                <marker date="1543270175000" expanded="true" signature="126:181" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -138,53 +140,51 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WheelSpinner/ObjToStr.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
+            <state relative-caret-position="10">
               <caret line="10" column="66" selection-start-line="10" selection-start-column="66" selection-end-line="10" selection-end-column="66" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WheelSpinner/Views/SpinnerWheel.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="61" column="31" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
+            <state relative-caret-position="-98">
+              <caret line="308" column="32" selection-start-line="308" selection-start-column="32" selection-end-line="308" selection-end-column="32" />
               <folding>
-                <marker date="1543273628956" expanded="false" signature="6:161" ph="..." />
-                <marker date="1543273628956" expanded="true" signature="191:14185" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="237:14183" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="389:2822" ph="PROPERTIES" />
-                <marker date="1543273628956" expanded="true" signature="625:766" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="987:1130" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="1454:1593" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="1702:1795" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="2078:2207" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="2308:2401" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="2662:2791" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="2897:3069" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="3144:3316" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="3395:3818" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="4018:5307" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="4325:4768" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="4410:4566" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="4818:5262" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="4903:5059" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="5498:9102" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="5542:8933" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="5839:6180" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="6294:8210" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="7380:7487" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="8028:8135" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="9144:10757" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="9820:9952" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="10116:10745" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="11029:14177" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="11268:11375" ph="/* Move canvas origin to the center of the screen ... */" />
-                <marker date="1543273628956" expanded="true" signature="11449:11553" ph="/* Set the desired rotation angle ... */" />
-                <marker date="1543273628956" expanded="true" signature="11990:14167" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="12458:12712" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="12762:13016" ph="{...}" />
-                <marker date="1543273628956" expanded="true" signature="13037:13251" ph="{...}" />
+                <marker date="1543442999551" expanded="false" signature="6:161" ph="..." />
+                <marker date="1543442999551" expanded="true" signature="191:14613" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="237:14611" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="389:2822" ph="PROPERTIES" />
+                <marker date="1543442999551" expanded="false" signature="625:766" ph="{...}" />
+                <marker date="1543442999551" expanded="false" signature="987:1130" ph="{...}" />
+                <marker date="1543442999551" expanded="false" signature="1454:1593" ph="{...}" />
+                <marker date="1543442999551" expanded="false" signature="1702:1795" ph="{...}" />
+                <marker date="1543442999551" expanded="false" signature="2078:2207" ph="{...}" />
+                <marker date="1543442999551" expanded="false" signature="2308:2401" ph="{...}" />
+                <marker date="1543442999551" expanded="false" signature="2662:2791" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="2897:3069" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="3144:3316" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="3395:3818" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="4018:5307" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="4325:4768" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="4410:4566" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="4818:5262" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="4903:5059" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="5498:9102" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="5542:8933" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="5839:6180" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="6294:8210" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="7380:7487" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="8028:8135" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="9144:10757" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="9820:9952" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="10116:10745" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="11029:14605" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="11951:14595" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="12513:12767" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="12875:13129" ph="{...}" />
+                <marker date="1543442999551" expanded="true" signature="13167:13381" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -203,16 +203,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/WheelSpinner/Views/SpinnerWheel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/WheelSpinner.macOS/ViewController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WheelSpinner/App.xaml.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/WheelSpinner/ViewModels/MainPageViewModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/WheelSpinner.macOS/AppDelegate.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/WheelSpinner/MainPage.xaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WheelSpinner/ObjToStr.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WheelSpinner.macOS/ViewController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WheelSpinner/MainPage.xaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WheelSpinner/MainPage.xaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/WheelSpinner.UWP/MainPage.xaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WheelSpinner/Views/SpinnerWheel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WheelSpinner.macOS/Main.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WheelSpinner.macOS/AppDelegate.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -228,10 +226,10 @@
         <option value="$PROJECT_DIR$/WheelSpinner.Android/WheelSpinner.Android.csproj" />
         <option value="$PROJECT_DIR$/WheelSpinner.macOS/AppDelegate.cs" />
         <option value="$PROJECT_DIR$/WheelSpinner/ObjToStr.cs" />
-        <option value="$PROJECT_DIR$/WheelSpinner/Views/SpinnerWheel.cs" />
         <option value="$PROJECT_DIR$/WheelSpinner/ViewModels/MainPageViewModelcs.cs" />
         <option value="$PROJECT_DIR$/WheelSpinner/ViewModels/MainPageViewModel.cs" />
         <option value="$PROJECT_DIR$/WheelSpinner/MainPage.xaml" />
+        <option value="$PROJECT_DIR$/WheelSpinner/Views/SpinnerWheel.cs" />
       </list>
     </option>
   </component>
@@ -241,10 +239,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="842" />
-    <option name="width" value="2310" />
-    <option name="height" value="2168" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="56" />
+    <option name="y" value="23" />
+    <option name="width" value="1864" />
+    <option name="height" value="1177" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -271,29 +270,12 @@
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="WheelSpinner" type="24d0babc:SolutionExplorerModelNode" />
               <item name="WheelSpinner" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="ViewModels" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="WheelSpinner" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="WheelSpinner" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Views" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="WheelSpinner" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="WheelSpinner" type="24d0babc:SolutionExplorerModelNode" />
               <item name="MainPage.xaml" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="WheelSpinner" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="WheelSpinner.Android" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="WheelSpinner" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="WheelSpinner.UWP" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="WheelSpinner.macOS" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
@@ -307,7 +289,7 @@
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="XamlPreviewOptionsPage" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -321,7 +303,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Xamarin.Android.Android Default">
+  <component name="RunManager" selected="Xamarin.Mac.Mac Default">
     <configuration name="WheelSpinner.macOS" type="DotNetProject" factoryName=".NET Project" temporary="true">
       <option name="EXE_PATH" value="$PROJECT_DIR$/WheelSpinner.macOS/bin/Debug/WheelSpinner.macOS.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -345,8 +327,8 @@
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="DEPLOY_BEHAVIOUR_NAME" value="Default" />
       <option name="DEPLOY_TARGET_BEHAVIOUR_NAME" value="ConnectedDevice" />
-      <option name="DEFAULT_EMULATOR_TO_RUN" value="samsung-sm_g955f-ce04171471d9800b0c" />
-      <option name="DEFAULT_DEVICE_TO_RUN" value="" />
+      <option name="DEFAULT_EMULATOR_TO_RUN" value="" />
+      <option name="DEFAULT_DEVICE_TO_RUN" value="samsung-sm_g955f-ce04171471d9800b0c" />
       <method v="2">
         <option name="Build" enabled="true" />
       </method>
@@ -392,6 +374,7 @@
       <workItem from="1543045410362" duration="28900000" />
       <workItem from="1543134327227" duration="20320000" />
       <workItem from="1543273582633" duration="1157000" />
+      <workItem from="1543440635588" duration="2365000" />
     </task>
     <task id="LOCAL-00001" summary="First commit - also updated Xamarin Forms and added macOS project">
       <created>1543045546057</created>
@@ -495,7 +478,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50377000" />
+    <option name="totallyTimeSpent" value="52742000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -507,16 +490,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="674" y="0" width="1848" height="1734" extended-state="0" />
+    <frame x="56" y="23" width="1864" height="1177" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13926175" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14050494" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Stacktrace" weight="0.32995567" />
-      <window_info anchor="bottom" id="XAML Preview" weight="0.40721977" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32987142" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.23875871" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21751413" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.27002966" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -528,14 +510,16 @@
       <window_info anchor="bottom" id="Unit Tests" order="11" />
       <window_info anchor="bottom" id="Terminal" order="12" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
-      <window_info anchor="bottom" id="Build" order="14" visible="true" weight="0.2488917" />
+      <window_info anchor="bottom" id="Build" order="14" weight="0.24858756" />
       <window_info anchor="bottom" id="Messages" order="15" />
-      <window_info anchor="right" id="Unit Tests Coverage" />
+      <window_info anchor="bottom" id="Stacktrace" order="16" weight="0.32995567" />
+      <window_info anchor="bottom" id="XAML Preview" order="17" weight="0.40721977" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="Errors In Solution" order="4" />
+      <window_info anchor="right" id="Unit Tests Coverage" order="5" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -690,105 +674,89 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2213E650-4125-4F04-B27A-E6E57D256A86/32/6693f48a/AnimationExtensions.cs" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2213E650-4125-4F04-B27A-E6E57D256A86/25/3fdbb781/Animation.cs" />
     <entry file="file:///Library/Frameworks/Xamarin.Mac.framework/Versions/5.0.0.0/src/Xamarin.Mac/external/corefx/src/System.Linq/src/System/Linq/First.cs" />
-    <entry file="file://$PROJECT_DIR$/WheelSpinner/MainPage.xaml.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Xamarin.Mac.framework/Versions/5.0.0.0/src/Xamarin.Mac/external/corefx/src/Common/src/CoreLib/System/Collections/Generic/KeyValuePair.cs" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2213E650-4125-4F04-B27A-E6E57D256A86/fa/1127f703/BindableObject.cs" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2213E650-4125-4F04-B27A-E6E57D256A86/c4/5d194492/BindableProperty.cs" />
+    <entry file="file://$PROJECT_DIR$/WheelSpinner/ViewModels/MainPageViewModel.cs" />
+    <entry file="file://$PROJECT_DIR$/WheelSpinner.UWP/MainPage.xaml" />
+    <entry file="file://$PROJECT_DIR$/WheelSpinner/MainPage.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding>
+            <marker date="1543274354000" expanded="true" signature="48:2316" ph="&lt;&lt;ContentPage.Resources&gt;&#10;        &lt;ResourceDictionary&gt;&#10;            &lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;&#10;        &lt;/ResourceDictionary&gt;&#10;    &lt;/ContentPage.Resources&gt; &lt;ContentPage.BindingContext&gt;&#10;        &lt;viewModels:MainPageViewModel /&gt;&#10;    &lt;/ContentPage.BindingContext&gt; &lt;Grid&gt;&#10;        &lt;Grid.RowDefinitions&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;*&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;        &lt;/Grid.RowDefinitions&gt;&#10;&#10;        &lt;Slider x:Name=&quot;AngleSlider&quot;&#10;                Margin=&quot;10&quot;&#10;                HeightRequest=&quot;50&quot;&#10;                Minimum=&quot;-360&quot;&#10;                Maximum=&quot;360&quot; /&gt;&#10;&#10;        &lt;views:SpinnerWheel Grid.Row=&quot;1&quot;&#10;                            x:Name=&quot;SpinnerWheel&quot;&#10;                            BackgroundColor=&quot;LightGray&quot;&#10;                            WidthRequest=&quot;600&quot;&#10;                            HeightRequest=&quot;600&quot;&#10;                            RotationAngle=&quot;{Binding Source={x:Reference AngleSlider}, Path=Value}&quot;&#10;                            Items=&quot;{Binding Letters}&quot;/&gt;&#10;&#10;        &lt;StackLayout Grid.Row=&quot;2&quot;&#10;                     Orientation=&quot;Horizontal&quot;&#10;                     HorizontalOptions=&quot;Center&quot;&gt;&#10;            &lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt;&#10;&#10;            &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;&#10;        &lt;/StackLayout&gt;&#10;&#10;        &lt;Label Grid.Row=&quot;3&quot;&#10;               HorizontalOptions=&quot;Center&quot;&#10;               Text=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=SelectedItem, Converter={StaticResource ObjToStrConverter}}&quot; /&gt;&#10;    &lt;/Grid&gt;.../&gt;" />
+            <marker date="1543274354000" expanded="true" signature="413:581" ph="&lt;&lt;ResourceDictionary&gt;&#10;            &lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;&#10;        &lt;/ResourceDictionary&gt;.../&gt;" />
+            <marker date="1543274354000" expanded="true" signature="445:552" ph="&lt;&lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;.../&gt;" />
+            <marker date="1543274354000" expanded="true" signature="587:690" ph="&lt;&lt;viewModels:MainPageViewModel /&gt;.../&gt;" />
+            <marker date="1543274354000" expanded="true" signature="696:2301" ph="&lt;&lt;Grid.RowDefinitions&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;*&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;        &lt;/Grid.RowDefinitions&gt; &lt;Slider x:Name=&quot;AngleSlider&quot;&#10;                Margin=&quot;10&quot;&#10;                HeightRequest=&quot;50&quot;&#10;                Minimum=&quot;-360&quot;&#10;                Maximum=&quot;360&quot; /&gt; &lt;views:SpinnerWheel Grid.Row=&quot;1&quot;&#10;                            x:Name=&quot;SpinnerWheel&quot;&#10;                            BackgroundColor=&quot;LightGray&quot;&#10;                            WidthRequest=&quot;600&quot;&#10;                            HeightRequest=&quot;600&quot;&#10;                            RotationAngle=&quot;{Binding Source={x:Reference AngleSlider}, Path=Value}&quot;&#10;                            Items=&quot;{Binding Letters}&quot;/&gt; &lt;StackLayout Grid.Row=&quot;2&quot;&#10;                     Orientation=&quot;Horizontal&quot;&#10;                     HorizontalOptions=&quot;Center&quot;&gt;&#10;            &lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt;&#10;&#10;            &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;&#10;        &lt;/StackLayout&gt; &lt;Label Grid.Row=&quot;3&quot;&#10;               HorizontalOptions=&quot;Center&quot;&#10;               Text=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=SelectedItem, Converter={StaticResource ObjToStrConverter}}&quot; /&gt;.../&gt;" />
+            <marker date="1543274354000" expanded="true" signature="711:936" ph="&lt;&lt;RowDefinition Height=&quot;Auto&quot; /&gt; &lt;RowDefinition Height=&quot;*&quot; /&gt; &lt;RowDefinition Height=&quot;Auto&quot; /&gt; &lt;RowDefinition Height=&quot;Auto&quot; /&gt;.../&gt;" />
+            <marker date="1543274354000" expanded="true" signature="946:1101" ph="&lt;.../&gt;" />
+            <marker date="1543274354000" expanded="true" signature="1111:1499" ph="&lt;.../&gt;" />
+            <marker date="1543274354000" expanded="true" signature="1509:2084" ph="&lt;&lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt; &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;.../&gt;" />
+            <marker date="1543274354000" expanded="true" signature="1642:1843" ph="&lt;.../&gt;" />
+            <marker date="1543274354000" expanded="true" signature="1857:2061" ph="&lt;.../&gt;" />
+            <marker date="1543274354000" expanded="true" signature="2094:2289" ph="&lt;.../&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WheelSpinner/ObjToStr.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
+        <state relative-caret-position="10">
           <caret line="10" column="66" selection-start-line="10" selection-start-column="66" selection-end-line="10" selection-end-column="66" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WheelSpinner/ViewModels/MainPageViewModel.cs">
+    <entry file="file://$PROJECT_DIR$/WheelSpinner/MainPage.xaml.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        <state relative-caret-position="220">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
           <folding>
-            <marker date="1543274180692" expanded="true" signature="68:207" ph="{...}" />
-            <marker date="1543274180692" expanded="true" signature="105:205" ph="{...}" />
+            <marker date="1543270175000" expanded="true" signature="44:189" ph="{...}" />
+            <marker date="1543270175000" expanded="true" signature="94:187" ph="{...}" />
+            <marker date="1543270175000" expanded="true" signature="126:181" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WheelSpinner/Views/SpinnerWheel.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="61" column="31" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
+        <state relative-caret-position="-98">
+          <caret line="308" column="32" selection-start-line="308" selection-start-column="32" selection-end-line="308" selection-end-column="32" />
           <folding>
-            <marker date="1543273628956" expanded="false" signature="6:161" ph="..." />
-            <marker date="1543273628956" expanded="true" signature="191:14185" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="237:14183" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="389:2822" ph="PROPERTIES" />
-            <marker date="1543273628956" expanded="true" signature="625:766" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="987:1130" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="1454:1593" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="1702:1795" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="2078:2207" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="2308:2401" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="2662:2791" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="2897:3069" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="3144:3316" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="3395:3818" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="4018:5307" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="4325:4768" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="4410:4566" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="4818:5262" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="4903:5059" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="5498:9102" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="5542:8933" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="5839:6180" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="6294:8210" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="7380:7487" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="8028:8135" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="9144:10757" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="9820:9952" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="10116:10745" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="11029:14177" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="11268:11375" ph="/* Move canvas origin to the center of the screen ... */" />
-            <marker date="1543273628956" expanded="true" signature="11449:11553" ph="/* Set the desired rotation angle ... */" />
-            <marker date="1543273628956" expanded="true" signature="11990:14167" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="12458:12712" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="12762:13016" ph="{...}" />
-            <marker date="1543273628956" expanded="true" signature="13037:13251" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WheelSpinner/MainPage.xaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="806">
-          <caret line="54" column="34" lean-forward="true" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
-          <folding>
-            <marker date="1543274354070" expanded="true" signature="48:2316" ph="&lt;&lt;ContentPage.Resources&gt;&#10;        &lt;ResourceDictionary&gt;&#10;            &lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;&#10;        &lt;/ResourceDictionary&gt;&#10;    &lt;/ContentPage.Resources&gt; &lt;ContentPage.BindingContext&gt;&#10;        &lt;viewModels:MainPageViewModel /&gt;&#10;    &lt;/ContentPage.BindingContext&gt; &lt;Grid&gt;&#10;        &lt;Grid.RowDefinitions&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;*&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;        &lt;/Grid.RowDefinitions&gt;&#10;&#10;        &lt;Slider x:Name=&quot;AngleSlider&quot;&#10;                Margin=&quot;10&quot;&#10;                HeightRequest=&quot;50&quot;&#10;                Minimum=&quot;-360&quot;&#10;                Maximum=&quot;360&quot; /&gt;&#10;&#10;        &lt;views:SpinnerWheel Grid.Row=&quot;1&quot;&#10;                            x:Name=&quot;SpinnerWheel&quot;&#10;                            BackgroundColor=&quot;LightGray&quot;&#10;                            WidthRequest=&quot;600&quot;&#10;                            HeightRequest=&quot;600&quot;&#10;                            RotationAngle=&quot;{Binding Source={x:Reference AngleSlider}, Path=Value}&quot;&#10;                            Items=&quot;{Binding Letters}&quot;/&gt;&#10;&#10;        &lt;StackLayout Grid.Row=&quot;2&quot;&#10;                     Orientation=&quot;Horizontal&quot;&#10;                     HorizontalOptions=&quot;Center&quot;&gt;&#10;            &lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt;&#10;&#10;            &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;&#10;        &lt;/StackLayout&gt;&#10;&#10;        &lt;Label Grid.Row=&quot;3&quot;&#10;               HorizontalOptions=&quot;Center&quot;&#10;               Text=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=SelectedItem, Converter={StaticResource ObjToStrConverter}}&quot; /&gt;&#10;    &lt;/Grid&gt;.../&gt;" />
-            <marker date="1543274354070" expanded="true" signature="413:581" ph="&lt;&lt;ResourceDictionary&gt;&#10;            &lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;&#10;        &lt;/ResourceDictionary&gt;.../&gt;" />
-            <marker date="1543274354070" expanded="true" signature="445:552" ph="&lt;&lt;local:ObjToStr x:Key=&quot;ObjToStrConverter&quot; /&gt;.../&gt;" />
-            <marker date="1543274354070" expanded="true" signature="587:690" ph="&lt;&lt;viewModels:MainPageViewModel /&gt;.../&gt;" />
-            <marker date="1543274354070" expanded="true" signature="696:2301" ph="&lt;&lt;Grid.RowDefinitions&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;*&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;            &lt;RowDefinition Height=&quot;Auto&quot; /&gt;&#10;        &lt;/Grid.RowDefinitions&gt; &lt;Slider x:Name=&quot;AngleSlider&quot;&#10;                Margin=&quot;10&quot;&#10;                HeightRequest=&quot;50&quot;&#10;                Minimum=&quot;-360&quot;&#10;                Maximum=&quot;360&quot; /&gt; &lt;views:SpinnerWheel Grid.Row=&quot;1&quot;&#10;                            x:Name=&quot;SpinnerWheel&quot;&#10;                            BackgroundColor=&quot;LightGray&quot;&#10;                            WidthRequest=&quot;600&quot;&#10;                            HeightRequest=&quot;600&quot;&#10;                            RotationAngle=&quot;{Binding Source={x:Reference AngleSlider}, Path=Value}&quot;&#10;                            Items=&quot;{Binding Letters}&quot;/&gt; &lt;StackLayout Grid.Row=&quot;2&quot;&#10;                     Orientation=&quot;Horizontal&quot;&#10;                     HorizontalOptions=&quot;Center&quot;&gt;&#10;            &lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt;&#10;&#10;            &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;&#10;        &lt;/StackLayout&gt; &lt;Label Grid.Row=&quot;3&quot;&#10;               HorizontalOptions=&quot;Center&quot;&#10;               Text=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=SelectedItem, Converter={StaticResource ObjToStrConverter}}&quot; /&gt;.../&gt;" />
-            <marker date="1543274354070" expanded="true" signature="711:936" ph="&lt;&lt;RowDefinition Height=&quot;Auto&quot; /&gt; &lt;RowDefinition Height=&quot;*&quot; /&gt; &lt;RowDefinition Height=&quot;Auto&quot; /&gt; &lt;RowDefinition Height=&quot;Auto&quot; /&gt;.../&gt;" />
-            <marker date="1543274354070" expanded="true" signature="946:1101" ph="&lt;.../&gt;" />
-            <marker date="1543274354070" expanded="true" signature="1111:1499" ph="&lt;.../&gt;" />
-            <marker date="1543274354070" expanded="true" signature="1509:2084" ph="&lt;&lt;Button x:Name=&quot;GoLeft&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; LEFT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoLeftCommand}&quot; /&gt; &lt;Button x:Name=&quot;GoRight&quot;&#10;                    HorizontalOptions=&quot;Center&quot;&#10;                    Text=&quot; RIGHT &quot;&#10;                    Command=&quot;{Binding Source={x:Reference SpinnerWheel}, Path=GoRightCommand}&quot; /&gt;.../&gt;" />
-            <marker date="1543274354070" expanded="true" signature="1642:1843" ph="&lt;.../&gt;" />
-            <marker date="1543274354070" expanded="true" signature="1857:2061" ph="&lt;.../&gt;" />
-            <marker date="1543274354070" expanded="true" signature="2094:2289" ph="&lt;.../&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WheelSpinner.UWP/MainPage.xaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-          <folding>
-            <marker date="1543270609157" expanded="true" signature="0:535" ph="&lt;.../&gt;" />
+            <marker date="1543442999551" expanded="false" signature="6:161" ph="..." />
+            <marker date="1543442999551" expanded="true" signature="191:14613" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="237:14611" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="389:2822" ph="PROPERTIES" />
+            <marker date="1543442999551" expanded="false" signature="625:766" ph="{...}" />
+            <marker date="1543442999551" expanded="false" signature="987:1130" ph="{...}" />
+            <marker date="1543442999551" expanded="false" signature="1454:1593" ph="{...}" />
+            <marker date="1543442999551" expanded="false" signature="1702:1795" ph="{...}" />
+            <marker date="1543442999551" expanded="false" signature="2078:2207" ph="{...}" />
+            <marker date="1543442999551" expanded="false" signature="2308:2401" ph="{...}" />
+            <marker date="1543442999551" expanded="false" signature="2662:2791" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="2897:3069" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="3144:3316" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="3395:3818" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="4018:5307" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="4325:4768" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="4410:4566" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="4818:5262" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="4903:5059" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="5498:9102" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="5542:8933" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="5839:6180" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="6294:8210" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="7380:7487" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="8028:8135" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="9144:10757" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="9820:9952" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="10116:10745" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="11029:14605" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="11951:14595" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="12513:12767" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="12875:13129" ph="{...}" />
+            <marker date="1543442999551" expanded="true" signature="13167:13381" ph="{...}" />
           </folding>
         </state>
       </provider>
