@@ -155,7 +155,7 @@ namespace WheelSpinner.Views
                 rotationAnimation.Commit(this, "RightRotationAnimation", 1000 / 60, 300);
             });
 
-            _selectedItemIndex = 0;
+            _selectedItemIndex = 1;
         }
 
         private long _touchId = -1;
@@ -287,7 +287,7 @@ namespace WheelSpinner.Views
                 // Update selected index
                 _selectedItemIndex = closestPair.Value.itemIndex;
                 _canvasView.InvalidateSurface();
-                
+
                 // Update selected item property
                 SelectedItem = closestPair.Value.item;
             });
@@ -321,8 +321,9 @@ namespace WheelSpinner.Views
 
             _hitAreaToIdxItemTuple.Clear();
 
-            for (var currentItemIndex = 0; currentItemIndex < 6; currentItemIndex++)
+            for (var i = 0; i < 6; i++)
             {
+                var currentItemIndex = i % 3;
                 canvas.Save();
 
                 // Compute the current item center
@@ -339,7 +340,7 @@ namespace WheelSpinner.Views
                     _thickStrokePaint.Color = _thickStrokePaint.Color.WithAlpha(255);
                     _thinStrokeTextPaint.Color = _thinStrokeTextPaint.Color.WithAlpha(255);
                 }
-                else if (currentItemIndex % 3 == _selectedItemIndex) // Highlight if item is currently selected
+                else if (currentItemIndex == _selectedItemIndex) // Highlight if item is currently selected
                 {
                     canvas.Scale(1.2f);
                     _thickStrokePaint.Color = _thickStrokePaint.Color.WithAlpha(255);
@@ -360,10 +361,10 @@ namespace WheelSpinner.Views
                     currentItemCenter.Y + (littleCircleRadius)
                 );
                 _hitAreaToIdxItemTuple.Add(hitAreaRect,
-                    (itemIndex: currentItemIndex % 3, item: Items[currentItemIndex % 3]));
+                    (itemIndex: currentItemIndex, item: Items[currentItemIndex]));
 
                 // Draw something to distinguish the items
-                var text = $"{((currentItemIndex % 3) + 1).ToString()}";
+                var text = $"{((currentItemIndex) + 1).ToString()}";
                 var textRect = new SKRect();
                 _thinStrokePaint.MeasureText(text, ref textRect);
                 var textLocation = new SKPoint(0, textRect.Height);
