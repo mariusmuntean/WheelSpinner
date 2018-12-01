@@ -41,7 +41,7 @@
                             HeightRequest="600"
                             RotationAngle="{Binding Source={x:Reference AngleSlider}, Path=Value}"
                             Items="{Binding Letters}"
-                            />
+                            ShouldHighlightHitArea="True" />
 
         <StackLayout Grid.Row="2"
                      Orientation="Horizontal"

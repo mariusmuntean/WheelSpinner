@@ -3,87 +3,16 @@ using SkiaSharp.Views.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Input;
+using WheelSpinner.Extensions;
 using WheelSpinner.Utils;
 using Xamarin.Forms;
 
 namespace WheelSpinner.Views
 {
-    public class SpinnerWheel : ContentView
+    public partial class SpinnerWheel : ContentView
     {
         private const double DegreesToRadianFactor = Math.PI / 180;
         private const double RadianToDegreesFactor = 180 / Math.PI;
-
-        #region PROPERTIES
-
-        public static readonly BindableProperty GoLeftCommandProperty = BindableProperty.Create("GoLeftCommand",
-            typeof(ICommand),
-            typeof(SpinnerWheel));
-
-        public ICommand GoLeftCommand
-        {
-            get => (ICommand)GetValue(GoLeftCommandProperty);
-            set => SetValue(GoLeftCommandProperty, value);
-        }
-
-        public static readonly BindableProperty GoRightCommandProperty = BindableProperty.Create("GoRightCommand",
-            typeof(ICommand),
-            typeof(SpinnerWheel));
-
-        public ICommand GoRightCommand
-        {
-            get => (ICommand)GetValue(GoRightCommandProperty);
-            set => SetValue(GoRightCommandProperty, value);
-        }
-
-        public static readonly BindableProperty RotationAngleProperty = BindableProperty.Create("RotationAngle",
-            typeof(double),
-            typeof(SpinnerWheel),
-            0.0d,
-            BindingMode.TwoWay,
-            propertyChanged: RotationAngleChanged
-        );
-
-        public double RotationAngle
-        {
-            get => (double)GetValue(RotationAngleProperty);
-            set => SetValue(RotationAngleProperty, value);
-        }
-
-        private static void RotationAngleChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            (bindable as SpinnerWheel)?._canvasView.InvalidateSurface();
-        }
-
-        public static readonly BindableProperty ItemsProperty = BindableProperty.Create("Items",
-            typeof(List<object>),
-            typeof(SpinnerWheel),
-            new List<object>() { "a", "b", "c" }, propertyChanged: ItemsChanged);
-
-        public List<object> Items
-        {
-            get => (List<object>)GetValue(ItemsProperty);
-            set => SetValue(ItemsProperty, value);
-        }
-
-        private static void ItemsChanged(BindableObject bindable, object oldvalue, object newvalue)
-        {
-            (bindable as SpinnerWheel)?._canvasView.InvalidateSurface();
-        }
-
-        public static readonly BindableProperty SelectedItemProperty = BindableProperty.Create("SelectedItem",
-            typeof(object),
-            typeof(SpinnerWheel),
-            null,
-            BindingMode.TwoWay);
-
-        public object SelectedItem
-        {
-            get => GetValue(SelectedItemProperty);
-            set => SetValue(SelectedItemProperty, value);
-        }
-
-        #endregion PROPERTIES
 
         private readonly SKPaint _thickStrokePaint = new SKPaint
         {
@@ -121,7 +50,7 @@ namespace WheelSpinner.Views
             //Color = SKColors.White.WithAlpha(128)
         };
 
-        private readonly SKCanvasView _canvasView;
+        internal readonly SKCanvasView _canvasView;
 
         private SKPoint _centerPoint;
 
@@ -168,7 +97,7 @@ namespace WheelSpinner.Views
 
             // Load mandatory cat pictures
             _bitmaps = new List<SKBitmap>();
-            foreach (var resourceName in new List<string> { "img_a.png", "img_b.png", "img_d.png" })
+            foreach (var resourceName in new List<string> {"img_a.png", "img_b.png", "img_d.png"})
             {
                 var relativePath = $"Assets.{resourceName}";
                 _bitmaps.Add(BitmapUtil.LoadBitmapFromResource(relativePath));
@@ -256,11 +185,11 @@ namespace WheelSpinner.Views
                     break;
 
                 default:
-                    {
-                        Console.WriteLine($"SKTouchAction: {e.ActionType}");
-                        //throw new ArgumentOutOfRangeException();
-                        break;
-                    }
+                {
+                    Console.WriteLine($"SKTouchAction: {e.ActionType}");
+                    //throw new ArgumentOutOfRangeException();
+                    break;
+                }
             }
 
             e.Handled = true;
@@ -347,8 +276,8 @@ namespace WheelSpinner.Views
 
                 // Compute the current item center
                 var currentItemCenter = new SKPoint(
-                    (float)(radius * Math.Cos((RotationAngle + rotationAngleOffset) * DegreesToRadianFactor)),
-                    (float)(radius * Math.Sin((RotationAngle + rotationAngleOffset) * DegreesToRadianFactor))
+                    (float) (radius * Math.Cos((RotationAngle + rotationAngleOffset) * DegreesToRadianFactor)),
+                    (float) (radius * Math.Sin((RotationAngle + rotationAngleOffset) * DegreesToRadianFactor))
                 );
                 canvas.Translate(currentItemCenter);
 
@@ -371,7 +300,10 @@ namespace WheelSpinner.Views
                     _thinStrokeTextPaint.Color = _thinStrokeTextPaint.Color.WithAlpha(128);
                 }
 
-                canvas.DrawCircle(0, 0, littleCircleRadius, _thickStrokePaint);
+                canvas.DrawBitmap(
+                    _bitmaps[currentItemIndex],
+                    new SKRect(-littleCircleRadius, -littleCircleRadius, littleCircleRadius, littleCircleRadius),
+                    _itemPaint);
 
                 // Compute hit area of current item
                 var hitAreaRect = new SKRect(currentItemCenter.X - (littleCircleRadius),
@@ -382,15 +314,12 @@ namespace WheelSpinner.Views
                 _hitAreaToIdxItemTuple.Add(hitAreaRect,
                     (itemIndex: currentItemIndex, item: Items[currentItemIndex]));
 
-                // Draw something to distinguish the items
-                var text = $"{((currentItemIndex) + 1).ToString()}";
-                var textRect = new SKRect();
-                _thinStrokePaint.MeasureText(text, ref textRect);
-                var textLocation = new SKPoint(0, textRect.Height);
-                canvas.DrawText(text, textLocation, _thinStrokeTextPaint);
-                canvas.DrawBitmap(_bitmaps[currentItemIndex],
-                    new SKRect(-littleCircleRadius, -littleCircleRadius, littleCircleRadius, littleCircleRadius),
-                    _itemPaint);
+                // Display the hit area if needed
+                if (ShouldHighlightHitArea)
+                {
+                    canvas.DrawRect(hitAreaRect.OffsetClone(currentItemCenter, OffsetMode.Subtract), _hitAreaPaint);
+                }
+
 
                 // Progress to next item angle
                 rotationAngleOffset -= rotationAngleOffsetIncrement;

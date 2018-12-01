@@ -10,15 +10,34 @@ namespace WheelSpinner.Extensions
         /// </summary>
         /// <param name="rect"></param>
         /// <param name="delta">The difference between the new <see cref="SKRect"/> and the original</param>
+        /// <param name="mode"></param>
         /// <returns></returns>
-        public static SKRect OffsetClone(this SKRect rect, SKPoint delta)
+        public static SKRect OffsetClone(this SKRect rect, SKPoint delta, OffsetMode mode = OffsetMode.Add)
         {
-            return new SKRect(
-                rect.Left + delta.X,
-                rect.Top + delta.Y,
-                rect.Right + delta.X,
-                rect.Bottom + delta.Y
-            );
+            if (mode == OffsetMode.Add)
+            {
+                return new SKRect(
+                    rect.Left + delta.X,
+                    rect.Top + delta.Y,
+                    rect.Right + delta.X,
+                    rect.Bottom + delta.Y
+                );
+            }
+            else
+            {
+                return new SKRect(
+                    rect.Left - delta.X,
+                    rect.Top - delta.Y,
+                    rect.Right - delta.X,
+                    rect.Bottom - delta.Y
+                );
+            }
         }
+    }
+
+    public enum OffsetMode
+    {
+        Add,
+        Subtract
     }
 }
