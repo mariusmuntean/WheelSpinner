@@ -282,30 +282,10 @@ namespace WheelSpinner.Views
                 canvas.Translate(currentItemCenter);
 
                 // Draw the current item
-                if (currentItemIndex == _pressedItemIdx) // Highlight if pressed
-                {
-                    canvas.Scale(1.1f);
-                    _thickStrokePaint.Color = _thickStrokePaint.Color.WithAlpha(255);
-                    _thinStrokeTextPaint.Color = _thinStrokeTextPaint.Color.WithAlpha(255);
-                }
-                else if (currentItemIndex == _selectedItemIndex) // Highlight if item is currently selected
-                {
-                    canvas.Scale(1.2f);
-                    _thickStrokePaint.Color = _thickStrokePaint.Color.WithAlpha(255);
-                    _thinStrokeTextPaint.Color = _thinStrokeTextPaint.Color.WithAlpha(255);
-                }
-                else // draw normally
-                {
-                    _thickStrokePaint.Color = _thickStrokePaint.Color.WithAlpha(128);
-                    _thinStrokeTextPaint.Color = _thinStrokeTextPaint.Color.WithAlpha(128);
-                }
-
-                canvas.DrawBitmap(
-                    _bitmaps[currentItemIndex],
-                    new SKRect(-littleCircleRadius, -littleCircleRadius, littleCircleRadius, littleCircleRadius),
-                    _itemPaint);
+                DrawCurrentItem(currentItemIndex, canvas, littleCircleRadius);
 
                 // Compute hit area of current item
+                // ToDo: account fo scaling - add an extension method to simplify the code
                 var hitAreaRect = new SKRect(currentItemCenter.X - (littleCircleRadius),
                     currentItemCenter.Y - (littleCircleRadius),
                     currentItemCenter.X + (littleCircleRadius),
@@ -320,13 +300,51 @@ namespace WheelSpinner.Views
                     canvas.DrawRect(hitAreaRect.OffsetClone(currentItemCenter, OffsetMode.Subtract), _hitAreaPaint);
                 }
 
-
                 // Progress to next item angle
                 rotationAngleOffset -= rotationAngleOffsetIncrement;
 
                 // Restore canvas transformations
                 canvas.Restore();
             }
+        }
+
+        private void DrawCurrentItem(int currentItemIndex, SKCanvas canvas, float littleCircleRadius)
+        {
+            if (currentItemIndex == _pressedItemIdx) // Highlight if pressed
+            {
+                canvas.Scale(1.1f);
+                _thickStrokePaint.Color = _thickStrokePaint.Color.WithAlpha(255);
+                _thinStrokeTextPaint.Color = _thinStrokeTextPaint.Color.WithAlpha(255);
+            }
+            else if (currentItemIndex == _selectedItemIndex) // Highlight if item is currently selected
+            {
+                canvas.Scale(1.2f);
+                _thickStrokePaint.Color = _thickStrokePaint.Color.WithAlpha(255);
+                _thinStrokeTextPaint.Color = _thinStrokeTextPaint.Color.WithAlpha(255);
+            }
+            else // draw normally
+            {
+                _thickStrokePaint.Color = _thickStrokePaint.Color.WithAlpha(128);
+                _thinStrokeTextPaint.Color = _thinStrokeTextPaint.Color.WithAlpha(128);
+            }
+
+            var currentItemBitmap = _bitmaps[currentItemIndex];
+            var scale = Math.Min(
+                (2 * littleCircleRadius) / currentItemBitmap.Width,
+                (2 * littleCircleRadius) / currentItemBitmap.Height
+            );
+            var destinationRect = new SKRect(
+                -(currentItemBitmap.Width * scale) / 2,
+                -(currentItemBitmap.Height * scale) / 2,
+                (currentItemBitmap.Width * scale) / 2,
+                (currentItemBitmap.Height * scale) / 2
+            );
+
+            canvas.DrawBitmap(
+                currentItemBitmap,
+                //new SKRect(-littleCircleRadius, -littleCircleRadius, littleCircleRadius, littleCircleRadius),
+                destinationRect,
+                _itemPaint);
         }
     }
 }
