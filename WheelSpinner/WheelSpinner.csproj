@@ -10,6 +10,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\cat_a.jpg" />
+    <None Remove="Assets\cat_a.png" />
+    <None Remove="Assets\cat_b.jpg" />
+    <None Remove="Assets\cat_c.jpg" />
+    <None Remove="Assets\img_a.png" />
+    <None Remove="Assets\img_b.png" />
+    <None Remove="Assets\img_c.png" />
+    <None Remove="Assets\img_d.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\cat_a.jpg" />
+    <EmbeddedResource Include="Assets\cat_a.png" />
+    <EmbeddedResource Include="Assets\cat_b.jpg" />
+    <EmbeddedResource Include="Assets\cat_c.jpg" />
+    <EmbeddedResource Include="Assets\img_a.png" />
+    <EmbeddedResource Include="Assets\img_b.png" />
+    <EmbeddedResource Include="Assets\img_c.png" />
+    <EmbeddedResource Include="Assets\img_d.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.60.3" />
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
   </ItemGroup>

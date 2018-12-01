@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
+using WheelSpinner.Utils;
 using Xamarin.Forms;
 
 namespace WheelSpinner.Views
@@ -21,7 +22,7 @@ namespace WheelSpinner.Views
 
         public ICommand GoLeftCommand
         {
-            get => (ICommand) GetValue(GoLeftCommandProperty);
+            get => (ICommand)GetValue(GoLeftCommandProperty);
             set => SetValue(GoLeftCommandProperty, value);
         }
 
@@ -31,7 +32,7 @@ namespace WheelSpinner.Views
 
         public ICommand GoRightCommand
         {
-            get => (ICommand) GetValue(GoRightCommandProperty);
+            get => (ICommand)GetValue(GoRightCommandProperty);
             set => SetValue(GoRightCommandProperty, value);
         }
 
@@ -45,7 +46,7 @@ namespace WheelSpinner.Views
 
         public double RotationAngle
         {
-            get => (double) GetValue(RotationAngleProperty);
+            get => (double)GetValue(RotationAngleProperty);
             set => SetValue(RotationAngleProperty, value);
         }
 
@@ -57,11 +58,11 @@ namespace WheelSpinner.Views
         public static readonly BindableProperty ItemsProperty = BindableProperty.Create("Items",
             typeof(List<object>),
             typeof(SpinnerWheel),
-            new List<object>() {"a", "b", "c"}, propertyChanged: ItemsChanged);
+            new List<object>() { "a", "b", "c" }, propertyChanged: ItemsChanged);
 
         public List<object> Items
         {
-            get => (List<object>) GetValue(ItemsProperty);
+            get => (List<object>)GetValue(ItemsProperty);
             set => SetValue(ItemsProperty, value);
         }
 
@@ -114,6 +115,12 @@ namespace WheelSpinner.Views
                 SKFontStyleSlant.Upright)
         };
 
+        private readonly SKPaint _itemPaint = new SKPaint
+        {
+            IsAntialias = true,
+            //Color = SKColors.White.WithAlpha(128)
+        };
+
         private readonly SKCanvasView _canvasView;
 
         private SKPoint _centerPoint;
@@ -131,6 +138,7 @@ namespace WheelSpinner.Views
             _canvasView.EnableTouchEvents = true;
             _canvasView.Touch += CanvasViewOnTouch;
 
+            // commands
             GoLeftCommand = new Command(() =>
             {
                 var rotationAnimation = new Animation(rotationAngle =>
@@ -155,7 +163,16 @@ namespace WheelSpinner.Views
                 rotationAnimation.Commit(this, "RightRotationAnimation", 1000 / 60, 300);
             });
 
+            // Default selected index
             _selectedItemIndex = 1;
+
+            // Load mandatory cat pictures
+            _bitmaps = new List<SKBitmap>();
+            foreach (var resourceName in new List<string> { "img_a.png", "img_b.png", "img_d.png" })
+            {
+                var relativePath = $"Assets.{resourceName}";
+                _bitmaps.Add(BitmapUtil.LoadBitmapFromResource(relativePath));
+            }
         }
 
         private long _touchId = -1;
@@ -239,11 +256,11 @@ namespace WheelSpinner.Views
                     break;
 
                 default:
-                {
-                    Console.WriteLine($"SKTouchAction: {e.ActionType}");
-                    //throw new ArgumentOutOfRangeException();
-                    break;
-                }
+                    {
+                        Console.WriteLine($"SKTouchAction: {e.ActionType}");
+                        //throw new ArgumentOutOfRangeException();
+                        break;
+                    }
             }
 
             e.Handled = true;
@@ -296,6 +313,8 @@ namespace WheelSpinner.Views
         private readonly Dictionary<SKRect, (int itemIndex, object item)> _hitAreaToIdxItemTuple =
             new Dictionary<SKRect, (int, object)>();
 
+        private List<SKBitmap> _bitmaps;
+
         private void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
         {
             var info = args.Info;
@@ -328,8 +347,8 @@ namespace WheelSpinner.Views
 
                 // Compute the current item center
                 var currentItemCenter = new SKPoint(
-                    (float) (radius * Math.Cos((RotationAngle + rotationAngleOffset) * DegreesToRadianFactor)),
-                    (float) (radius * Math.Sin((RotationAngle + rotationAngleOffset) * DegreesToRadianFactor))
+                    (float)(radius * Math.Cos((RotationAngle + rotationAngleOffset) * DegreesToRadianFactor)),
+                    (float)(radius * Math.Sin((RotationAngle + rotationAngleOffset) * DegreesToRadianFactor))
                 );
                 canvas.Translate(currentItemCenter);
 
@@ -369,6 +388,9 @@ namespace WheelSpinner.Views
                 _thinStrokePaint.MeasureText(text, ref textRect);
                 var textLocation = new SKPoint(0, textRect.Height);
                 canvas.DrawText(text, textLocation, _thinStrokeTextPaint);
+                canvas.DrawBitmap(_bitmaps[currentItemIndex],
+                    new SKRect(-littleCircleRadius, -littleCircleRadius, littleCircleRadius, littleCircleRadius),
+                    _itemPaint);
 
                 // Progress to next item angle
                 rotationAngleOffset -= rotationAngleOffsetIncrement;

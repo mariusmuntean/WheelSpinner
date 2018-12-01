@@ -20,7 +20,7 @@
         <viewModels:MainPageViewModel />
     </ContentPage.BindingContext>
 
-    <Grid>
+    <Grid BackgroundColor="LightGray">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -36,11 +36,12 @@
 
         <views:SpinnerWheel Grid.Row="1"
                             x:Name="SpinnerWheel"
-                            BackgroundColor="LightGray"
+                            BackgroundColor="Transparent"
                             WidthRequest="600"
                             HeightRequest="600"
                             RotationAngle="{Binding Source={x:Reference AngleSlider}, Path=Value}"
-                            Items="{Binding Letters}"/>
+                            Items="{Binding Letters}"
+                            />
 
         <StackLayout Grid.Row="2"
                      Orientation="Horizontal"
