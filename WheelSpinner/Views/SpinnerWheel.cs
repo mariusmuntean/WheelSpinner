@@ -234,7 +234,10 @@ namespace WheelSpinner.Views
 
             // Draw large circle
             var radius = Math.Min(info.Width, info.Height / 2f) * 0.8f;
-            canvas.DrawCircle(new SKPoint(), radius, _thinStrokePaint);
+            if (ShowWheel)
+            {
+                canvas.DrawCircle(new SKPoint(), radius, _mainCirclePaint);
+            }
 
             // Draw little circles
             var rotationAngleOffset = 240.0f;

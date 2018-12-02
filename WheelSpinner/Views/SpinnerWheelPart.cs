@@ -18,7 +18,7 @@ namespace WheelSpinner.Views
             IsAntialias = true
         };
 
-        private readonly SKPaint _thinStrokePaint = new SKPaint
+        private readonly SKPaint _mainCirclePaint = new SKPaint
         {
             Style = SKPaintStyle.Stroke,
             Color = Color.FromHex("#AAFF6600").ToSKColor(),
@@ -63,7 +63,7 @@ namespace WheelSpinner.Views
 
         public ICommand GoLeftCommand
         {
-            get => (ICommand)GetValue(GoLeftCommandProperty);
+            get => (ICommand) GetValue(GoLeftCommandProperty);
             set => SetValue(GoLeftCommandProperty, value);
         }
 
@@ -73,7 +73,7 @@ namespace WheelSpinner.Views
 
         public ICommand GoRightCommand
         {
-            get => (ICommand)GetValue(GoRightCommandProperty);
+            get => (ICommand) GetValue(GoRightCommandProperty);
             set => SetValue(GoRightCommandProperty, value);
         }
 
@@ -90,7 +90,7 @@ namespace WheelSpinner.Views
         /// </summary>
         public double RotationAngle
         {
-            get => (double)GetValue(RotationAngleProperty);
+            get => (double) GetValue(RotationAngleProperty);
             set => SetValue(RotationAngleProperty, value);
         }
 
@@ -103,14 +103,14 @@ namespace WheelSpinner.Views
             "ItemSource",
             typeof(List<object>),
             typeof(SpinnerWheel),
-            new List<object> { "a", "b", "c" }, propertyChanged: ItemSourceChanged);
+            new List<object> {"a", "b", "c"}, propertyChanged: ItemSourceChanged);
 
         /// <summary>
         /// The items to be displayed
         /// </summary>
         public List<object> ItemSource
         {
-            get => (List<object>)GetValue(ItemSourceProperty);
+            get => (List<object>) GetValue(ItemSourceProperty);
             set => SetValue(ItemSourceProperty, value);
         }
 
@@ -140,7 +140,7 @@ namespace WheelSpinner.Views
             typeof(SpinnerWheel),
             false,
             BindingMode.TwoWay,
-            propertyChanged: (bindable, value, newValue) => { ((SpinnerWheel)bindable).ShouldHighlightHitArea = (bool)newValue; }
+            propertyChanged: (bindable, value, newValue) => { ((SpinnerWheel) bindable).ShouldHighlightHitArea = (bool) newValue; }
         );
 
         /// <summary>
@@ -149,7 +149,7 @@ namespace WheelSpinner.Views
         /// </summary>
         public bool ShouldHighlightHitArea
         {
-            get => (bool)GetValue(ShouldHighlightHitAreaProperty);
+            get => (bool) GetValue(ShouldHighlightHitAreaProperty);
             set => SetValue(ShouldHighlightHitAreaProperty, value);
         }
 
@@ -159,7 +159,7 @@ namespace WheelSpinner.Views
             typeof(SpinnerWheel),
             false,
             BindingMode.TwoWay,
-            propertyChanged: (bindable, value, newValue) => { ((SpinnerWheel)bindable).ShouldFadeToEdge = (bool)newValue; }
+            propertyChanged: (bindable, value, newValue) => { ((SpinnerWheel) bindable).ShouldFadeToEdge = (bool) newValue; }
         );
 
         /// <summary>
@@ -167,9 +167,29 @@ namespace WheelSpinner.Views
         /// </summary>
         public bool ShouldFadeToEdge
         {
-            get => (bool)GetValue(ShouldFadeToEdgeProperty);
+            get => (bool) GetValue(ShouldFadeToEdgeProperty);
             set => SetValue(ShouldFadeToEdgeProperty, value);
         }
+
+
+        public static readonly BindableProperty ShowWheelProperty = BindableProperty.Create(
+            "ShowWheel",
+            typeof(bool),
+            typeof(SpinnerWheel),
+            true,
+            BindingMode.TwoWay,
+            propertyChanged: (bindable, value, newValue) => { ((SpinnerWheel) bindable).ShowWheel = (bool) newValue; }
+        );
+
+        /// <summary>
+        /// Decides whether or not the guiding wheel should be shown
+        /// </summary>
+        public bool ShowWheel
+        {
+            get => (bool) GetValue(ShowWheelProperty);
+            set => SetValue(ShowWheelProperty, value);
+        }
+
 
         protected override void OnPropertyChanged(string propertyName = null)
         {

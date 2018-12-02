@@ -61,16 +61,27 @@
         <Label Grid.Row="3"
                HorizontalOptions="Center"
                Text="{Binding Source={x:Reference SpinnerWheel}, Path=SelectedItem, Converter={StaticResource ObjToStrConverter}}" />
+
         <StackLayout Grid.Row="4"
-                     Margin="10"
-                     Orientation="Horizontal"
-                     HorizontalOptions="CenterAndExpand">
-            <Label VerticalOptions="Center">Fade To Edge</Label>
-            <Switch IsToggled="{Binding Source={x:Reference SpinnerWheel}, Path=ShouldFadeToEdge, Mode=TwoWay}"
+                     Orientation="Vertical">
+            <FlexLayout
+                Margin="10"
+                Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly" Wrap="Wrap"
+                >
+                <Label VerticalOptions="Center">Fade To Edge</Label>
+                <Switch IsToggled="{Binding Source={x:Reference SpinnerWheel}, Path=ShouldFadeToEdge, Mode=TwoWay}"
+                        VerticalOptions="Center" />
+                <Label Margin="10,0,0,0" VerticalOptions="Center">Show HitArea</Label>
+                <Switch
+                    IsToggled="{Binding Source={x:Reference SpinnerWheel}, Path=ShouldHighlightHitArea, Mode=TwoWay}"
                     VerticalOptions="Center" />
-            <Label Margin="10,0,0,0" VerticalOptions="Center">Show Hit Area</Label>
-            <Switch IsToggled="{Binding Source={x:Reference SpinnerWheel}, Path=ShouldHighlightHitArea, Mode=TwoWay}"
-                    VerticalOptions="Center" />
+                <Label Margin="10,0,0,0" VerticalOptions="Center">Show Wheel</Label>
+                <Switch IsToggled="{Binding Source={x:Reference SpinnerWheel}, Path=ShowWheel, Mode=TwoWay}"
+                        VerticalOptions="Center" />
+            </FlexLayout>
+
         </StackLayout>
+
+
     </Grid>
 </ContentPage>
