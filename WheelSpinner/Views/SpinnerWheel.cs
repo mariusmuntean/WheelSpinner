@@ -14,41 +14,15 @@ namespace WheelSpinner.Views
         private const double DegreesToRadianFactor = Math.PI / 180;
         private const double RadianToDegreesFactor = 180 / Math.PI;
 
-        private readonly SKPaint _thickStrokePaint = new SKPaint
-        {
-            Style = SKPaintStyle.Stroke,
-            Color = Color.FromHex("#AAFF6600").ToSKColor(),
-            StrokeWidth = 8,
-            IsAntialias = true
-        };
+        /// <summary>
+        /// The maximum value for item image alpha channel
+        /// </summary>
+        private const byte MaxAlpha = 255;
 
-        private readonly SKPaint _thinStrokePaint = new SKPaint
-        {
-            Style = SKPaintStyle.Stroke,
-            Color = Color.FromHex("#AAFF6600").ToSKColor(),
-            StrokeWidth = 4,
-            IsAntialias = true
-        };
-
-        private readonly SKPaint _thinStrokeTextPaint = new SKPaint
-        {
-            IsStroke = false,
-            Color = Color.Aqua.ToSKColor(),
-            TextSize = 40.0f,
-            TextAlign = SKTextAlign.Center,
-            TextEncoding = SKTextEncoding.Utf16,
-            IsAntialias = true,
-            Typeface = SKTypeface.FromFamilyName("Arial",
-                SKFontStyleWeight.Normal,
-                SKFontStyleWidth.Normal,
-                SKFontStyleSlant.Upright)
-        };
-
-        private readonly SKPaint _itemPaint = new SKPaint
-        {
-            IsAntialias = true,
-            //Color = SKColors.White.WithAlpha(128)
-        };
+        /// <summary>
+        /// The minimum value for item image alpha channel
+        /// </summary>
+        private const byte MinAlpha = 50;
 
         internal readonly SKCanvasView _canvasView;
 
@@ -275,14 +249,16 @@ namespace WheelSpinner.Views
                 canvas.Save();
 
                 // Compute the current item center
+                var currentItemAngle = RotationAngle + rotationAngleOffset;
                 var currentItemCenter = new SKPoint(
-                    (float) (radius * Math.Cos((RotationAngle + rotationAngleOffset) * DegreesToRadianFactor)),
-                    (float) (radius * Math.Sin((RotationAngle + rotationAngleOffset) * DegreesToRadianFactor))
+                    (float) (radius * Math.Cos(currentItemAngle * DegreesToRadianFactor)),
+                    (float) (radius * Math.Sin(currentItemAngle * DegreesToRadianFactor))
                 );
                 canvas.Translate(currentItemCenter);
 
                 // Draw the current item
-                DrawCurrentItem(currentItemIndex, canvas, littleCircleRadius);
+                var newAlpha = ShouldFadeToEdge ? ComputeItemAlpha(currentItemCenter, radius) : MaxAlpha;
+                DrawCurrentItem(currentItemIndex, canvas, littleCircleRadius, newAlpha);
 
                 // Compute hit area of current item
                 // ToDo: account fo scaling - add an extension method to simplify the code
@@ -292,7 +268,7 @@ namespace WheelSpinner.Views
                     currentItemCenter.Y + (littleCircleRadius)
                 );
                 _hitAreaToIdxItemTuple.Add(hitAreaRect,
-                    (itemIndex: currentItemIndex, item: Items[currentItemIndex]));
+                    (itemIndex: currentItemIndex, item: ItemSource[currentItemIndex]));
 
                 // Display the hit area if needed
                 if (ShouldHighlightHitArea)
@@ -308,19 +284,27 @@ namespace WheelSpinner.Views
             }
         }
 
-        private void DrawCurrentItem(int currentItemIndex, SKCanvas canvas, float littleCircleRadius)
+        private static byte ComputeItemAlpha(SKPoint currentItemCenter, float radius)
+        {
+            var distanceToOy = Math.Min(Math.Abs(currentItemCenter.X), radius);
+            var alphaFactor = distanceToOy / radius;
+            var newAlpha = MinAlpha + (MaxAlpha - MinAlpha) * alphaFactor;
+            return (byte) newAlpha;
+        }
+
+        private void DrawCurrentItem(int currentItemIndex, SKCanvas canvas, float littleCircleRadius, byte itemAlpha)
         {
             if (currentItemIndex == _pressedItemIdx) // Highlight if pressed
             {
                 canvas.Scale(1.1f);
-                _thickStrokePaint.Color = _thickStrokePaint.Color.WithAlpha(255);
-                _thinStrokeTextPaint.Color = _thinStrokeTextPaint.Color.WithAlpha(255);
+                _thickStrokePaint.Color = _thickStrokePaint.Color.WithAlpha(MaxAlpha);
+                _thinStrokeTextPaint.Color = _thinStrokeTextPaint.Color.WithAlpha(MaxAlpha);
             }
             else if (currentItemIndex == _selectedItemIndex) // Highlight if item is currently selected
             {
                 canvas.Scale(1.2f);
-                _thickStrokePaint.Color = _thickStrokePaint.Color.WithAlpha(255);
-                _thinStrokeTextPaint.Color = _thinStrokeTextPaint.Color.WithAlpha(255);
+                _thickStrokePaint.Color = _thickStrokePaint.Color.WithAlpha(MaxAlpha);
+                _thinStrokeTextPaint.Color = _thinStrokeTextPaint.Color.WithAlpha(MaxAlpha);
             }
             else // draw normally
             {
@@ -340,6 +324,8 @@ namespace WheelSpinner.Views
                 (currentItemBitmap.Height * scale) / 2
             );
 
+            // Finally, draw the item
+            _itemPaint.Color = SKColor.Empty.WithAlpha(itemAlpha);
             canvas.DrawBitmap(
                 currentItemBitmap,
                 //new SKRect(-littleCircleRadius, -littleCircleRadius, littleCircleRadius, littleCircleRadius),

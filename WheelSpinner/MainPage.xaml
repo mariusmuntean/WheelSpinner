@@ -26,6 +26,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Slider x:Name="AngleSlider"
@@ -40,8 +41,8 @@
                             WidthRequest="600"
                             HeightRequest="600"
                             RotationAngle="{Binding Source={x:Reference AngleSlider}, Path=Value}"
-                            Items="{Binding Letters}"
-                            ShouldHighlightHitArea="True" />
+                            ItemSource="{Binding Letters}"
+                            ShouldHighlightHitArea="False" />
 
         <StackLayout Grid.Row="2"
                      Orientation="Horizontal"
@@ -60,5 +61,16 @@
         <Label Grid.Row="3"
                HorizontalOptions="Center"
                Text="{Binding Source={x:Reference SpinnerWheel}, Path=SelectedItem, Converter={StaticResource ObjToStrConverter}}" />
+        <StackLayout Grid.Row="4"
+                     Margin="10"
+                     Orientation="Horizontal"
+                     HorizontalOptions="CenterAndExpand">
+            <Label VerticalOptions="Center">Fade To Edge</Label>
+            <Switch IsToggled="{Binding Source={x:Reference SpinnerWheel}, Path=ShouldFadeToEdge, Mode=TwoWay}"
+                    VerticalOptions="Center" />
+            <Label Margin="10,0,0,0" VerticalOptions="Center">Show Hit Area</Label>
+            <Switch IsToggled="{Binding Source={x:Reference SpinnerWheel}, Path=ShouldHighlightHitArea, Mode=TwoWay}"
+                    VerticalOptions="Center" />
+        </StackLayout>
     </Grid>
 </ContentPage>
